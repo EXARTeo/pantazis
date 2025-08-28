@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Πλυντήριο 8kg TurboWash™",
+    "meta": "10 χρόνια εγγύηση μοτέρ",
+    "old": "499",
+    "price": "389",
+    "cat": "appliances",
+    "img": "images/plintirio.jpg",
+    "alt": "Πλυντήριο 8 κιλών"
+  },
+  {
+    "title": "Smart TV 55'' 4K",
+    "meta": "HDR10 • Wi‑Fi",
+    "old": "599",
+    "price": "499",
+    "cat": "tv",
+    "img": "images/tv55.jpg",
+    "alt": "Τηλεόραση 55 ιντσών 4K"
+  },
+  {
+    "title": "Ατμοσίδερο Express Easy",
+    "meta": "Πίεση 5.5 bar",
+    "old": "99",
+    "price": "79",
+    "cat": "small",
+    "img": "images/steam.jpg",
+    "alt": "Ατμοσύστημα σιδερώματος"
+  }
+]
