@@ -10,10 +10,10 @@
   },
   {
     "title": "Smart TV 55'' 4K",
-    "meta": "HDR10 • Wi‑Fi",
+    "meta": "HDR10 • Wi-Fi",
     "old": "599",
     "price": "499",
-    "cat": "tv",
+    "cat": "av",
     "img": "images/tv55.jpg",
     "alt": "Τηλεόραση 55 ιντσών 4K"
   },
@@ -22,7 +22,7 @@
     "meta": "Πίεση 5.5 bar",
     "old": "99",
     "price": "79",
-    "cat": "small",
+    "cat": "personal",
     "img": "images/steam.jpg",
     "alt": "Ατμοσύστημα σιδερώματος"
   }
