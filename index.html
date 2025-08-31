@@ -38,7 +38,7 @@
   <a href="#main" class="skip">Μετάβαση στο περιεχόμενο</a>
   <nav class="nav" aria-label="Κύρια πλοήγηση">
     <div class="container nav-inner">
-      <a href="#" class="logo" aria-label="Αρχική">
+      <a href="index.html" class="logo" aria-label="Αρχική">
         <span class="logo-star" aria-hidden="true">★</span>
         <div class="brand-wrap">
           <div class="brand">euronics</div>
@@ -47,7 +47,7 @@
       </a>
       <button class="hamb" aria-label="Μενού" aria-expanded="false" aria-controls="menu">☰</button>
       <div id="menu" class="menu" role="menubar">
-        <a href="#promos" role="menuitem">Προσφορές</a>
+        <a href="products.html" role="menuitem">Προϊόντα</a>
         <a href="#services" role="menuitem">Υπηρεσίες</a>
         <a href="#brands" role="menuitem">Μάρκες</a>
         <a href="#reviews" role="menuitem">Αξιολογήσεις</a>
@@ -55,7 +55,7 @@
         <a href="#contact" role="menuitem">Επικοινωνία</a>
       </div>
       <div class="nav-actions">
-        <a class="btn btn-ghost" href="#promos">Προϊόντα</a>
+        <a class="btn btn-ghost" href="products.html">Προϊόντα</a>
         <a class="btn btn-primary" href="tel:+302662025000">Κάλεσέ μας</a>
       </div>
     </div>
@@ -63,35 +63,38 @@
 
   <main id="main">
     <header class="hero section" aria-label="Κεντρικό banner">
-      <div class="container hero-inner">
-        <div class="left">
-          <div class="headband">
-            <h1>Μεταφορές & Εγκατάσταση <span style="opacity:.9">σε όλη την Ήπειρο</span></h1>
-            <small>Γρήγορα • Ασφαλή • Εγγύηση καλής λειτουργίας</small>
-          </div>
-          <section class="section" id="promos" aria-label="Προϊόντα & Προσφορές">
-            <div class="chips" aria-label="Κατηγορίες">
-              <button class="chip active" data-filter="all" type="button">Όλα</button>
-
-              <button class="chip" data-filter="av" type="button">Εικόνα και Ήχος</button>
-              <button class="chip" data-filter="imaging" type="button">Imaging</button>
-              <button class="chip" data-filter="computing" type="button">Computing</button>
-              <button class="chip" data-filter="telephony" type="button">Τηλεφωνία</button>
-              <button class="chip" data-filter="gaming" type="button">Gaming</button>
-              <button class="chip" data-filter="hvac" type="button">Κλιματισμός &amp; Θέρμανση</button>
-              <button class="chip" data-filter="appliances" type="button">Λευκές Συσκευές</button>
-              <button class="chip" data-filter="home" type="button">Οικιακός Εξοπλισμός</button>
-              <button class="chip" data-filter="personal" type="button">Προσωπική Φροντίδα</button>
-            </div>
-            <div class="grid" id="grid"></div>
-          </section>
-        </div>
-        <aside class="billboard" aria-label="Εικόνα παραδόσεων">
-          <img src="images/van.jpg" width="1600" height="900" alt="Van παραδόσεων σε κίνηση" />
-          <!-- <div class="badge">ΜΕΤΑΦΟΡΕΣ — ΣΕ ΟΛΗ ΤΗΝ ΗΠΕΙΡΟ</div> -->
-        </aside>
+  <div class="container hero-inner">
+    <div class="left">
+      <div class="headband">
+        <h1>Ηλεκτρικές συσκευές με <span style="opacity:.9">μεταφορά &amp; εγκατάσταση</span></h1>
+        <small>Σε όλη την Ήπειρο — γρήγορα, προσεκτικά, με εγγύηση καλής λειτουργίας.</small>
       </div>
-    </header>
+
+      <ul class="hero-bullets" aria-label="Γιατί να μας επιλέξετε">
+        <li>Παράδοση &amp; τοποθέτηση από εξειδικευμένο συνεργείο</li>
+        <li>Ανακύκλωση παλιών συσκευών κατόπιν συνεννόησης</li>
+        <li>Υποστήριξη &amp; service μετά την αγορά</li>
+      </ul>
+
+      <div class="cta-row">
+        <a href="products.html" class="btn btn-primary" aria-label="Δείτε όλα τα προϊόντα">Δείτε προϊόντα</a>
+        <a href="tel:+302662025000" class="btn btn-ghost" aria-label="Καλέστε μας τώρα">Κάλεσέ μας</a>
+      </div>
+    </div>
+
+    <aside class="billboard" aria-label="Εικόνα παραδόσεων">
+      <img src="images/van.jpg" width="1600" height="900" alt="Van παραδόσεων σε κίνηση" />
+    </aside>
+  </div>
+</header>
+
+    <section class="container section" id="featured" aria-label="Προτεινόμενα προϊόντα">
+  <h2 style="margin:0 0 10px">Προτεινόμενα προϊόντα</h2>
+  <section id="teaser" class="grid" aria-live="polite"></section>
+  <div class="cta" style="margin-top:14px">
+    <a href="products.html" class="btn-big" aria-label="Δείτε όλα τα προϊόντα">Δες όλα τα προϊόντα</a>
+  </div>
+</section>
 
     <section class="container strip section" id="services" aria-label="Υπηρεσίες">
       <ul>
@@ -106,7 +109,9 @@
       <div class="box">
         <h2>Γιατί Euronics Πανταζής</h2>
         <p>Δίπλα σας στην Ηγουμενίτσα με χρόνια εμπειρίας στις ηλεκτρικές συσκευές και άμεση εξυπηρέτηση. Επιλέγουμε προϊόντα που αξίζουν τα χρήματά σας και προσφέρουμε ολοκληρωμένες υπηρεσίες από την αγορά μέχρι την εγκατάσταση.</p>
-        <div class="cta"><a href="#promos" class="btn-big" aria-label="Δείτε προϊόντα">Δείτε Προϊόντα</a></div>
+        <div class="cta">
+          <a href="products.html" class="btn-big" aria-label="Δείτε προϊόντα">Δείτε Προϊόντα</a>
+        </div>
       </div>
       <div class="box">
         <h2>Ώρες λειτουργίας</h2>
@@ -159,7 +164,7 @@
       </div>
       <div class="box">
         <h2 style="margin:0 0 8px">Χάρτης</h2>
-        <iframe title="Χάρτης καταστήματος" src="https://maps.google.com/maps?q=Igoumenitsa%2C%20Greece&t=m&z=14&output=embed&iwloc=near" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="Χάρτης καταστήματος" src="https://maps.google.com/maps?hl=el&q=%CE%9B%CE%B5%CF%89%CF%86%CF%8C%CF%81%CE%BF%CF%82%2049%20%CE%9C%CE%B1%CF%81%CF%84%CF%8D%CF%81%CF%89%CE%BD%2015%2C%20%CE%97%CE%B3%CE%BF%CF%85%CE%BC%CE%B5%CE%BD%CE%AF%CF%84%CF%83%CE%B1&t=m&z=16&output=embed&iwloc=near" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
   </main>

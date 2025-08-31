@@ -188,3 +188,82 @@ footer small{opacity:.9}
 .skip:focus-visible{
   left:8px;top:8px;background:#fff;padding:8px 12px;border-radius:8px;z-index:1000
 }
+
+
+/* Κλείδωμα scroll όταν το mobile menu είναι ανοικτό */
+body.nav-open { overflow: hidden; }
+
+/* Σιγουρεύουμε ότι το Χ δεν εμφανίζεται στο desktop, ακόμα κι αν μείνει στο DOM */
+.menu-close { display: none; }
+@media (max-width: 768px){ .menu-close { display: inline-block; } }
+
+
+/* --- Mobile <=768px overrides --- */
+@media (max-width: 768px){
+  /* NAV: hamburger δεξιά */
+  .hamb{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:42px;height:42px;font-size:26px;line-height:1;margin-left:auto;
+    background:transparent;border:0;color:#fff;cursor:pointer;
+  }
+  .nav-inner{gap:8px}
+  .nav-actions{display:none}
+
+  /* Drop sheet που ξεκινά ΚΑΤΩ από τη μπάρα (top = --navH) */
+  .menu{
+    position:fixed;left:0;right:0;top:var(--navH,56px);width:100%;
+    max-height:80dvh;overflow:auto;
+    background:linear-gradient(90deg,var(--brand),var(--brand-2));
+    color:#fff;
+    padding:14px 18px 22px;
+    display:flex;flex-direction:column;gap:12px;
+    transform:translateY(-8px);opacity:0;visibility:hidden;
+    transition:transform .22s ease, opacity .22s ease, visibility 0s linear .22s;
+    z-index:60;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    border-bottom-left-radius:14px;border-bottom-right-radius:14px;
+    pointer-events:none;
+  }
+  .menu a{
+    color:#fff;font-weight:800;
+    padding:12px 6px; /* μεγάλα tap targets */
+  }
+  #menu.open{
+    transform:translateY(0);
+    opacity:1; visibility:visible; pointer-events:auto;
+    transition:transform .22s ease, opacity .22s ease;
+  }
+
+  /* Hero stack & spacing */
+  .hero .hero-inner{display:grid;grid-template-columns:1fr;gap:16px;align-items:center;text-align:center}
+  .hero .billboard{order:-1}
+  .hero .billboard img{width:100%;height:auto;border-radius:var(--radius)}
+  .hero .headband small{display:block;margin-top:6px;opacity:.9}
+  .hero-bullets{gap:6px;margin:10px 0}
+  .hero-bullets li{padding:9px 10px;font-size:14px}
+  .cta-row{justify-content:center}
+  .btn-big,.btn{width:100%;max-width:480px}
+
+  /* Sections & headings */
+  .section{padding:32px 0}
+  h1{font-size:clamp(24px,7vw,32px)}
+  h2{font-size:clamp(18px,5.6vw,24px)}
+
+  /* Grids */
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .card .p{padding:10px}
+  .card h3{font-size:15px;line-height:1.25}
+  .price{font-size:16px}
+  .old{font-size:12px}
+  .strip ul{grid-template-columns:1fr 1fr}
+  .about{grid-template-columns:1fr;gap:18px}
+  .contact{grid-template-columns:1fr;gap:18px}
+
+  /* Map */
+  #map iframe,.map iframe{width:100%;height:260px;border:0;border-radius:var(--radius)}
+}
+
+/* Tiny phones */
+@media (max-width: 420px){
+  .grid{grid-template-columns:1fr}
+}
