@@ -8,26 +8,42 @@
   <link rel="preload" href="style.css" as="style">
   <link rel="stylesheet" href="style.css" />
   <link rel="canonical" href="/products.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
 </head>
+
+
 <body>
   <a class="skip" href="#content">Μετάβαση στο περιεχόμενο</a>
 
-  <!-- Header / Nav (συμβατό με το υπάρχον script.js: .hamb & #menu) -->
-  <header class="nav">
-    <div class="container flex between center">
-      <a class="brand" href="index.html" aria-label="Pantazis Euronics – Αρχική">Pantazis <strong>Euronics</strong></a>
-      <button class="hamb" aria-label="Μενού" aria-expanded="false" aria-controls="menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="menu" class="menu">
-        <a href="index.html#services">Υπηρεσίες</a>
-        <a href="products.html" aria-current="page">Προϊόντα</a>
-        <a href="index.html#brands">Μάρκες</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="index.html#contact">Επικοινωνία</a>
-      </nav>
+  <!-- Nav (συμβατό με το υπάρχον script.js: .hamb & #menu) -->
+  <nav class="nav" aria-label="Κύρια πλοήγηση">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Αρχική">
+      <span class="logo-star" aria-hidden="true">★</span>
+      <div class="brand-wrap">
+        <div class="brand">euronics</div>
+        <div class="sub">ΠΑΝΤΑΖΗΣ • Ηγουμενίτσα</div>
+      </div>
+    </a>
+
+    <button class="hamb" aria-label="Μενού" aria-expanded="false" aria-controls="menu">☰</button>
+
+    <div id="menu" class="menu" role="menubar">
+      <a href="products.html" role="menuitem" aria-current="page">Προϊόντα</a>
+      <a href="index.html#services" role="menuitem">Υπηρεσίες</a>
+      <a href="index.html#brands" role="menuitem">Μάρκες</a>
+      <a href="index.html#reviews" role="menuitem">Αξιολογήσεις</a>
+      <a href="index.html#faq" role="menuitem">Συχνές Ερωτήσεις</a>
+      <a href="index.html#contact" role="menuitem">Επικοινωνία</a>
     </div>
-  </header>
+  </div>
+</nav>
+
 
   <main id="content" class="section">
     <div class="container">
@@ -50,7 +66,9 @@
 
   <footer class="section">
     <div class="container">
-      <p class="muted">© <span id="y">2025</span> Pantazis Euronics</p>
+      <small>© <span id="y"></span> Euronics Πανταζής — Ηγουμενίτσα</small>
+      <!-- TODO -->
+      <!-- <small>Κατασκευή: <a href="#" style="color:#fff;text-decoration:underline">EXARTeo</a></small> -->
     </div>
   </footer>
 

@@ -88,12 +88,12 @@ function cardTpl(p){
         ${p.meta ? `<div class="meta">${p.meta}</div>` : ''}
         <p class="price">${p.old ? `<s>${p.old}€</s>` : ''} <b>${p.price ? `${p.price}€` : ''}</b></p>
         <div class="buy">
-          <a class="btn btn-ghost" href="#contact">Ρώτησε διαθεσιμότητα</a>
           <a class="btn btn-primary" href="tel:+302662025000">Τηλεφωνική παραγγελία</a>
         </div>
       </div>
     </article>`;
 }
+//          <a class="btn btn-ghost" href="#contact">Ρώτησε διαθεσιμότητα</a>
 
 function emptyTpl(){
   return `
