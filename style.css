@@ -193,6 +193,15 @@ footer small{opacity:.9}
 /* Κλείδωμα scroll όταν το mobile menu είναι ανοικτό */
 body.nav-open { overflow: hidden; }
 
+/* --- Mobile / Tablet fixes --- */
+@media (max-width: 992px){
+  /* πιο άνετο tablet */
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .reviews{grid-template-columns:1fr 1fr}
+  .brands{grid-template-columns:repeat(4,1fr)}
+}
+
+
 /* Σιγουρεύουμε ότι το Χ δεν εμφανίζεται στο desktop, ακόμα κι αν μείνει στο DOM */
 .menu-close { display: none; }
 @media (max-width: 768px){ .menu-close { display: inline-block; } }
@@ -261,7 +270,20 @@ body.nav-open { overflow: hidden; }
 
   /* Map */
   #map iframe,.map iframe{width:100%;height:260px;border:0;border-radius:var(--radius)}
+  
+  /* Κόψε οριζόντιο scroll σε mobile */
+  /* html, body { overflow-x: hidden; } */
+
+  /* Μην αφήνεις παιδιά των grids να “σπρώχνουν” το πλάτος */
+  :where(.strip ul, .about, .reviews, .brands, .contact, .grid) > * { min-width: 0; }
+
+  /* Σπάσε πολύ μακριές λέξεις/αλφαριθμητικά (π.χ. μοντέλα) για να μην ξεχειλώνει η στήλη */
+  :where(h1,h2,h3,p,li,small){ overflow-wrap: break-word; }
 }
+
+
+/* Global safeguard (προαιρετικό) */
+:where(.strip ul, .about, .reviews, .brands, .contact) > * { min-width: 0; }
 
 /* Tiny phones */
 @media (max-width: 420px){
