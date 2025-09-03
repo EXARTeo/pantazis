@@ -9,14 +9,13 @@
     "alt": "Πλυντήριο 8 κιλών"
   },
   {
-    "title": "Πλυντήριο tralalero tralala",
+    "title": "tralalero tralala",
     "meta": "10 χρόνια bombardilo crocodilo",
     "price": "6969",
     "cat": "telephony",
-    "img": "images/tv55.jpg",
+    "img": "images/steam.jpg",
     "alt": "bombobini gusini"
-  }
-  ,
+  },
   {
     "title": "Smart TV 55'' 4K",
     "meta": "HDR10 • Wi-Fi",
@@ -34,5 +33,191 @@
     "cat": "personal",
     "img": "images/steam.jpg",
     "alt": "Ατμοσύστημα σιδερώματος"
+  },
+
+  {
+    "title": "Κλιματιστικό Inverter 12.000 BTU",
+    "meta": "A+++ • Ιονιστής • Wi-Fi",
+    "old": "529",
+    "price": "449",
+    "cat": "climate",
+    "img": "images/tv55.jpg",
+    "alt": "Κλιματιστικό 12.000 BTU"
+  },
+  {
+    "title": "Αφυγραντήρας 20L",
+    "meta": "Ιονιστής • Συνεχής αποστράγγιση",
+    "old": "249",
+    "price": "199",
+    "cat": "climate",
+    "img": "images/steam.jpg",
+    "alt": "Αφυγραντήρας 20 λίτρων"
+  },
+  {
+    "title": "Ψυγείο NoFrost 350L",
+    "meta": "Total NoFrost • Inverter",
+    "old": "699",
+    "price": "599",
+    "cat": "appliances",
+    "img": "images/plintirio.jpg",
+    "alt": "Ψυγείο με NoFrost 350 λίτρων"
+  },
+  {
+    "title": "Πλυντήριο πιάτων 14 σερβιτσίων",
+    "meta": "8 προγράμματα • Inverter",
+    "old": "499",
+    "price": "429",
+    "cat": "appliances",
+    "img": "images/plintirio.jpg",
+    "alt": "Πλυντήριο πιάτων 14 σερβιτσίων"
+  },
+  {
+    "title": "Φούρνος εντοιχιζόμενος A+",
+    "meta": "Πυρόλυση • 72L",
+    "old": "449",
+    "price": "379",
+    "cat": "appliances",
+    "img": "images/plintirio.jpg",
+    "alt": "Εντοιχιζόμενος φούρνος"
+  },
+  {
+    "title": "Σκούπα stick 2-σε-1",
+    "meta": "Αυτονομία 45' • HEPA",
+    "old": "169",
+    "price": "139",
+    "cat": "home",
+    "img": "images/steam.jpg",
+    "alt": "Ασύρματη σκούπα stick"
+  },
+
+  {
+    "title": "Smartphone 128GB 5G",
+    "meta": "6.5'' OLED • 50MP",
+    "old": "349",
+    "price": "299",
+    "cat": "telephony",
+    "img": "images/tv55.jpg",
+    "alt": "Smartphone 5G 128GB"
+  },
+  {
+    "title": "Ασύρματα ακουστικά TWS",
+    "meta": "BT 5.3 • ENC κλήσεων",
+    "old": "59",
+    "price": "49",
+    "cat": "telephony",
+    "img": "images/steam.jpg",
+    "alt": "True Wireless ακουστικά"
+  },
+
+  {
+    "title": "Laptop 15.6'' i5 16GB",
+    "meta": "SSD 512GB • Windows 11",
+    "old": "899",
+    "price": "749",
+    "cat": "computing",
+    "img": "images/tv55.jpg",
+    "alt": "Laptop 15.6 ιντσών"
+  },
+  {
+    "title": "Οθόνη 27'' QHD 165Hz",
+    "meta": "IPS • Adaptive-Sync",
+    "old": "259",
+    "price": "229",
+    "cat": "computing",
+    "img": "images/tv55.jpg",
+    "alt": "Οθόνη υπολογιστή 27 ιντσών"
+  },
+  {
+    "title": "SSD NVMe 1TB",
+    "meta": "PCIe 4.0 • έως 5000MB/s",
+    "old": "99",
+    "price": "89",
+    "cat": "computing",
+    "img": "images/steam.jpg",
+    "alt": "NVMe SSD 1TB"
+  },
+  {
+    "title": "Πληκτρολόγιο μηχανικό",
+    "meta": "RGB • Hot-swap",
+    "old": "79",
+    "price": "69",
+    "cat": "computing",
+    "img": "images/steam.jpg",
+    "alt": "Μηχανικό πληκτρολόγιο"
+  },
+
+  {
+    "title": "Κονσόλα παιχνιδιών 1TB",
+    "meta": "4K HDR • Online play",
+    "old": "599",
+    "price": "549",
+    "cat": "gaming",
+    "img": "images/tv55.jpg",
+    "alt": "Κονσόλα παιχνιδιών"
+  },
+  {
+    "title": "Χειριστήριο ασύρματο",
+    "meta": "Dual vibration • BT/USB",
+    "old": "69",
+    "price": "59",
+    "cat": "gaming",
+    "img": "images/steam.jpg",
+    "alt": "Ασύρματο gamepad"
+  },
+  {
+    "title": "Gaming Headset 7.1",
+    "meta": "Μικρόφωνο • Over-ear",
+    "old": "89",
+    "price": "79",
+    "cat": "gaming",
+    "img": "images/steam.jpg",
+    "alt": "Ακουστικά gaming 7.1"
+  },
+
+  {
+    "title": "Soundbar 2.1",
+    "meta": "Bluetooth • Subwoofer",
+    "old": "149",
+    "price": "129",
+    "cat": "av",
+    "img": "images/tv55.jpg",
+    "alt": "Soundbar 2.1 καναλιών"
+  },
+  {
+    "title": "Ακουστικά over-ear ANC",
+    "meta": "Active Noise Cancelling",
+    "old": "219",
+    "price": "179",
+    "cat": "av",
+    "img": "images/steam.jpg",
+    "alt": "Ασύρματα ακουστικά over-ear"
+  },
+
+  {
+    "title": "Mirrorless Κάμερα 24MP",
+    "meta": "4K Video • Ανταλλάξιμοι φακοί",
+    "old": "899",
+    "price": "799",
+    "cat": "imaging",
+    "img": "images/tv55.jpg",
+    "alt": "Mirrorless κάμερα 24MP"
+  },
+  {
+    "title": "Action Camera 5K",
+    "meta": "Υποβρύχια • Σταθεροποίηση",
+    "old": "399",
+    "price": "369",
+    "cat": "imaging",
+    "img": "images/steam.jpg",
+    "alt": "Action κάμερα 5K"
+  },
+  {
+    "title": "Drone με κάμερα 4K",
+    "meta": "GPS • Return-to-Home",
+    "old": "649",
+    "price": "599",
+    "cat": "imaging",
+    "img": "images/tv55.jpg",
+    "alt": "Drone με κάμερα 4K"
   }
 ]

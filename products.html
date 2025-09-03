@@ -51,8 +51,19 @@
 
       <!-- Controls: Search + Dynamic Category Chips -->
       <div class="controls stack-m">
-        <label class="sr-only" for="search">Αναζήτηση προϊόντων</label>
-        <input id="search" type="search" placeholder="Αναζήτηση… (π.χ. τηλεόραση, 8kg, Dyson)" autocomplete="off" />
+        <div class="searchbar" role="search">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 10-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zM10 15a5 5 0 110-10 5 5 0 010 10z"/>
+          </svg>
+          <label class="sr-only" for="search">Αναζήτηση προϊόντων</label>
+          <input id="search" type="search"
+                placeholder="Αναζήτηση… (π.χ. τηλεόραση, 8kg, Dyson)"
+                autocomplete="off" />
+          <button type="button" id="clearSearch" class="clear" aria-label="Καθαρισμός αναζήτησης">×</button>
+          <kbd class="slash" aria-hidden="true">/</kbd>
+        </div>
+
+        <!-- Το sort θα μπει αυτόματα εδώ από το inline JS του products.html -->
         <div id="chips" class="chips" role="tablist" aria-label="Φίλτρα κατηγορίας"></div>
       </div>
 
@@ -333,6 +344,116 @@
   })();
 })();
 </script>
+
+<script>
+  (function(){
+    const input = document.getElementById('search');
+    const clear = document.getElementById('clearSearch');
+    const wrap  = input?.closest('.searchbar');
+
+    function sync(){
+      wrap?.classList.toggle('has-value', !!input?.value.trim());
+    }
+
+    input?.addEventListener('input', sync);
+
+    clear?.addEventListener('click', () => {
+      if(!input) return;
+      input.value = '';
+      // Πες στο υπάρχον φίλτρο να ξανατρέξει:
+      input.dispatchEvent(new Event('input', { bubbles:true }));
+      input.focus();
+    });
+
+    // Shortcut: "/" για focus στο search – Esc για καθαρισμό
+    document.addEventListener('keydown', (e) => {
+      const el = document.activeElement;
+      const typing = el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
+
+      if (!typing && e.key === '/') {
+        e.preventDefault();
+        input?.focus();
+      } else if (typing && e.key === 'Escape' && el === input) {
+        if (input.value) {
+          input.value = '';
+          input.dispatchEvent(new Event('input', { bubbles:true }));
+        } else {
+          input.blur();
+        }
+      }
+    });
+
+    sync();
+  })();
+</script>
+
+
+<script>
+(function(){
+  // Map κωδικών -> ελληνικά labels
+  const GR_LABELS = {
+    av: 'Εικόνα & Ήχος',
+    imaging: 'Φωτογραφία & Video',
+    computing: 'Υπολογιστές',
+    telephony: 'Τηλεφωνία',
+    gaming: 'Gaming',
+    climate: 'Κλιματισμός & Θέρμανση',
+    appliances: 'Λευκές Συσκευές',
+    home: 'Οικιακός Εξοπλισμός',
+    personal: 'Προσωπική Φροντίδα'
+  };
+
+  // Μεταφράζει/ενημερώνει τα chips χωρίς να πειράζει data attributes
+  function localizeChips(){
+    const chips = document.querySelectorAll('#chips .chip');
+    chips.forEach(chip => {
+      const cat = chip.dataset.cat || chip.getAttribute('data-cat') || chip.textContent.trim();
+      const label = GR_LABELS[cat] || chip.textContent.trim();
+      chip.textContent = label;
+      chip.setAttribute('aria-label', label);
+      chip.title = label;
+    });
+  }
+
+  // Ενημέρωση μετρητή ενεργών φίλτρων (αν η λογική σου κρατά .active)
+  function updateFilterCount(){
+    const n = document.querySelectorAll('#chips .chip.active').length;
+    const el = document.getElementById('filterCount');
+    if(!el) return;
+    el.textContent = n ? `${n} ενεργό${n>1?'α':''}` : '';
+  }
+
+  // Παρακολούθηση του #chips για δυναμικές αλλαγές από το script σου
+  const chipsWrap = document.getElementById('chips');
+  if (chipsWrap){
+    const mo = new MutationObserver(() => { localizeChips(); updateFilterCount(); });
+    mo.observe(chipsWrap, { childList:true });
+  }
+  // Αρχικοποίηση
+  localizeChips(); updateFilterCount();
+
+  // Όταν αλλάζει active chip, ανανέωσε τον μετρητή (μικρό timeout για να “προλάβει” το existing script)
+  document.addEventListener('click', (e)=>{
+    if(e.target.closest('#chips .chip')){
+      setTimeout(updateFilterCount, 0);
+    }
+  });
+
+  // Mobile: κλειστά φίλτρα, Desktop/Tablet: ανοικτά
+  function syncFiltersOpen(){
+    const filters = document.getElementById('filters');
+    if(!filters) return;
+    if (window.matchMedia('(max-width: 768px)').matches){
+      filters.open = false;
+    } else {
+      filters.open = true;
+    }
+  }
+  window.addEventListener('resize', syncFiltersOpen);
+  syncFiltersOpen();
+})();
+</script>
+
 
 </body>
 </html>
