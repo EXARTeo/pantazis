@@ -107,6 +107,12 @@ img{max-width:100%;display:block;height:auto}
 .chip.active{background:#e0e7ff}
 
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
+/* Home teaser: κράτα 3 στήλες και στο κινητό */
+#featured #teaser.grid{
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
 .card{
   background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
   overflow:hidden;display:flex;flex-direction:column
@@ -292,8 +298,13 @@ body.nav-open { overflow: hidden; }
   .grid{grid-template-columns:1fr}
 }
 
+/* (προαιρετικά) λίγο πιο σφιχτά κενά σε πολύ μικρές οθόνες */
+@media (max-width: 420px){
+  #featured #teaser.grid{ gap: 10px; }
+}
 
 
+/*////////////////////////////////////////////////////////////////////////////////////// */
 /* --------------------- Products: Controls/Search/Sort -------------------- */
 .controls{
   display:flex; flex-wrap:wrap; align-items:center; gap:10px;
