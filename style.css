@@ -288,14 +288,8 @@ body.nav-open { overflow: hidden; }
   :where(h1,h2,h3,p,li,small){ overflow-wrap: break-word; }
 }
 
-
 /* Global safeguard (προαιρετικό) */
 :where(.strip ul, .about, .reviews, .brands, .contact) > * { min-width: 0; }
-
-/* Tiny phones */
-@media (max-width: 420px){
-  .grid{grid-template-columns:1fr}
-}
 
 
 /* Mobile chips */
