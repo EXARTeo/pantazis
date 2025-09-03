@@ -411,3 +411,12 @@ body.nav-open { overflow: hidden; }
   display: none;
 }
 .searchbar input[type="search"]::-ms-clear{ display:none; width:0; height:0; } /* legacy Edge/IE */
+
+
+.btn-big{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+  text-align:center;
+}
