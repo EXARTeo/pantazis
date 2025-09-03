@@ -108,11 +108,6 @@ img{max-width:100%;display:block;height:auto}
 
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 
-/* Home teaser: κράτα 3 στήλες και στο κινητό */
-#featured #teaser.grid{
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-}
-
 .card{
   background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
   overflow:hidden;display:flex;flex-direction:column
@@ -267,7 +262,11 @@ body.nav-open { overflow: hidden; }
   h2{font-size:clamp(18px,5.6vw,24px)}
 
   /* Grids */
-  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px
+  }
   .card .p{padding:10px}
   .card h3{font-size:15px;line-height:1.25}
   .price{font-size:16px}
@@ -298,9 +297,44 @@ body.nav-open { overflow: hidden; }
   .grid{grid-template-columns:1fr}
 }
 
-/* (προαιρετικά) λίγο πιο σφιχτά κενά σε πολύ μικρές οθόνες */
+
+/* Mobile chips */
+/* ——— Teaser micro-cards για κινητό ——— */
+@media (max-width: 768px){
+  /* κρατάμε 3 στήλες */
+  #featured #teaser.grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px;
+  }
+
+  /* πιο “τετράγωνες” εικόνες για να μην γίνονται μακρόστενες οι κάρτες */
+  #featured #teaser .card img{
+    aspect-ratio: 1 / 1 !important;   /* override του 4/3 */
+    object-fit: cover;
+  }
+
+  /* σφίξιμο περιεχομένου */
+  #featured #teaser .card .p{ padding: 8px 8px 10px; }
+  #featured #teaser .card h3{
+    font-size: 13px; line-height: 1.25;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden; /* 2 γραμμές max */
+  }
+  #featured #teaser .meta{ display:none; } /* κρύψε το subtext για χώρο */
+
+  #featured #teaser .price b{ font-size: 16px; }
+  #featured #teaser .price s{ font-size: 12px; }
+
+  /* Προτεινόμενο: κρύψε τα κουμπιά στο teaser για καθαρό layout */
+  #featured #teaser .buy{ display:none; }
+
+  /* Γενικό “στρογγύλεμα” */
+  #featured #teaser .card{ border-radius: 12px; }
+}
+
+/* ακόμη πιο μικρές οθόνες */
 @media (max-width: 420px){
-  #featured #teaser.grid{ gap: 10px; }
+  #featured #teaser.grid{ gap: 8px; }
 }
 
 
