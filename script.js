@@ -88,7 +88,7 @@ function cardTpl(p){
         ${p.meta ? `<div class="meta">${p.meta}</div>` : ''}
         <p class="price">${p.old ? `<s>${p.old}€</s>` : ''} <b>${p.price ? `${p.price}€` : ''}</b></p>
         <div class="buy">
-          <a class="btn btn-primary" href="tel:+302662025000">Τηλεφωνική παραγγελία</a>
+          <a class="btn btn-primary" href="tel:+302665409100">Τηλεφωνική παραγγελία</a>
         </div>
       </div>
     </article>`;
@@ -113,7 +113,7 @@ function emptyTpl(){
         </svg>
       </div>
       <h3>Δεν εντοπίστηκαν προσφορές</h3>
-      <p>Δες ξανά αργότερα ή κάλεσέ μας στο <a href="tel:+302662025000">26620 25000</a>.</p>
+      <p>Δες ξανά αργότερα ή κάλεσέ μας στο <a href="tel:+302665409100">2665 409100</a>.</p>
     </article>
   `;
 }
@@ -156,4 +156,57 @@ chips.forEach(ch => ch.addEventListener('click', () => {
   }catch(e){
     wrap.innerHTML = '<p class="muted">Σφάλμα φόρτωσης προσφορών.</p>';
   }
+})();
+
+
+// Sticky Call FAB toggle + a11y
+(function(){
+  const root = document.getElementById('sc');
+  if(!root) return;
+  const btn  = document.getElementById('sc-fab');
+  const menu = document.getElementById('sc-menu');
+
+  const setOpen = (open) => {
+    root.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+  };
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!root.classList.contains('open'));
+  });
+
+  // κλείσιμο με click έξω
+  document.addEventListener('click', (e) => {
+    if(root.classList.contains('open') && !root.contains(e.target)){ setOpen(false); }
+  });
+
+  // κλείσιμο με Esc
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){ setOpen(false); }
+  });
+})();
+
+
+// Hide Sticky Call when footer is visible
+(function(){
+  const fabWrap = document.getElementById('sc');      // <div id="sc" class="sticky-call">
+  const footer  = document.querySelector('footer');
+  if(!fabWrap || !footer || !('IntersectionObserver' in window)) return;
+
+  const io = new IntersectionObserver((entries)=>{
+    const footerOnScreen = entries[0]?.isIntersecting;
+    fabWrap.classList.toggle('is-hidden', !!footerOnScreen);
+    // αν θες να κλείνει και το μενού όταν κρύβεται:
+    if (footerOnScreen) {
+      fabWrap.classList.remove('open');
+      const btn  = document.getElementById('sc-fab');
+      const menu = document.getElementById('sc-menu');
+      btn?.setAttribute('aria-expanded','false');
+      menu?.setAttribute('aria-hidden','true');
+    }
+  }, { threshold: 0.05 }); // 5% ορατότητα footer αρκεί για να το κρύψει
+
+  io.observe(footer);
 })();
