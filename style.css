@@ -119,6 +119,7 @@ img{max-width:100%;display:block;height:auto}
 .price{display:flex;align-items:baseline;gap:8px}
 .price s{color:var(--muted);font-size:14px}
 .price b{font-size:20px}
+.sku{ font-size:10px; margin:2px 0 6px; }
 .buy{margin-top:12px;display:flex;gap:8px}
 .buy .btn{flex:1}
 
@@ -566,7 +567,7 @@ body.nav-open { overflow: hidden; }
   flex-direction:column;
   gap:10px;
   height:100%;
-  transition: transform .15s ease;   /* TODO */
+  transition: transform .15s ease;
 }
 .contact-lean .card-head{
   display:flex;
@@ -622,6 +623,7 @@ body.nav-open { overflow: hidden; }
 }
 .contact-lean .mini-form textarea#message{ grid-column:1 / -1 } /* message full width */
 
+
 /* ---- Info / Map ---- */
 .contact-lean .info{ margin-top:16px }
 .contact-lean .info h2{ margin:0 0 8px }
@@ -648,7 +650,6 @@ body.nav-open { overflow: hidden; }
 /* ---- Subtle hover (προαιρετικό, “corporate”) ---- */
 .contact-lean .card:hover{
   transform:translateY(-1px);
-  transition:transform .15s ease;
 }
 
 /* ---- Responsive ---- */

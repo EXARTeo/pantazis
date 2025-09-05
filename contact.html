@@ -80,7 +80,7 @@
     <main id="main" class="section">
     <div class="container contact-lean">
         <h1>Επικοινωνία</h1>
-        <p class="muted">Διάλεξε αν θες να μιλήσουμε τώρα ή να μας στείλεις μήνυμα.
+        <p class="muted">Διάλεξε αν θες να μιλήσουμε τώρα ή να μας στείλεις μήνυμα.</p>
     
         <!-- 1. Τηλέφωνο & Μήνυμα (δίπλα-δίπλα) -->
         <section class="duo" aria-label="Γρήγορες επιλογές επικοινωνίας">
@@ -120,7 +120,7 @@
             <div class="btn-col">
             <a id="viber" class="btn btn-primary" href="viber://chat?number=%2B306959666060">Viber</a>
             <a id="wa" class="btn" target="_blank" rel="noopener" href="https://wa.me/306959666060">WhatsApp</a>
-            <a id="email" class="btn" href="mailto:pantazis@euronics.gr">Email</a>
+            <a id="emailLink" class="btn" href="mailto:pantazis@euronics.gr">Email</a>
             </div>
         </article>
         </section>
@@ -129,20 +129,25 @@
         <section class="box form" aria-label="Φόρμα επικοινωνίας">
         <h2>Γρήγορη φόρμα</h2>
         <form id="contactForm" action="mailto:pantazis@euronics.gr" method="post" enctype="text/plain" class="mini-form">
-            <label for="name">Ονοματεπώνυμο
-            <input id="name" name="name" autocomplete="name" required placeholder="Π.χ. Μαρία Παπαδοπούλου">
-            </label>
-            <label for="phone">Τηλέφωνο
-            <input id="phone" name="phone" autocomplete="tel" inputmode="tel" required placeholder="69xx xxx xxx">
-            </label>
-            <label for="email">Email (προαιρετικό)
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
-            </label>
-            <label for="message">Μήνυμα
+        <label>Ονοματεπώνυμο
+            <input name="name" autocomplete="name" required placeholder="Π.χ. Μαρία Παπαδοπούλου">
+        </label>
+
+        <label>Τηλέφωνο
+            <input name="phone" autocomplete="tel" inputmode="tel" required placeholder="69xx xxx xxx">
+        </label>
+
+        <label>Email (προαιρετικό)
+            <input name="email" type="email" autocomplete="email" placeholder="name@example.com">
+        </label>
+
+        <label>Μήνυμα
             <textarea id="message" name="message" rows="4" placeholder="Τι θα θέλατε;"></textarea>
-            </label>
-            <button class="btn btn-primary" type="submit">Αποστολή</button>
+        </label>
+
+        <button class="btn btn-primary" type="submit">Αποστολή</button>
         </form>
+
 
         <!-- <small class="muted">* Προς το παρόν ανοίγει τον email client· μπορούμε να το κάνουμε server-side όποτε θες.</small> -->
         </section>
@@ -254,15 +259,16 @@
             const label = it==='availability' ? 'Διαθεσιμότητα' : it==='offer' ? 'Προσφορά' : 'Παραγγελία';
             parts.push(`Αίτημα: ${label}`);
         }
-        const prefill = parts.join(' • ');
 
+        const prefill = parts.join(' • ');
         const msg = document.getElementById('message');
         if (prefill && msg && !msg.value) msg.value = prefill;
 
         const text = encodeURIComponent((prefill ? prefill + ' — ' : '') + 'Γεια σας, θα ήθελα ενημέρωση.');
         const wa = document.getElementById('wa');
-        const email = document.getElementById('email');
-        if (wa) wa.href = `https://wa.me/306959666060?text=${text}`;
+        const email = document.getElementById('emailLink'); // <-- κουμπί Email
+
+        if (wa)    wa.href    = `https://wa.me/306959666060?text=${text}`;
         if (email) email.href = `mailto:pantazis@euronics.gr?subject=${encodeURIComponent('Επικοινωνία από το site')}&body=${text}`;
         })();
     </script>

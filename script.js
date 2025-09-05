@@ -80,20 +80,25 @@ async function getProducts(){
 }
 
 function cardTpl(p){
+  const skuQS = p.sku ? `&sku=${encodeURIComponent(p.sku)}` : '';
   return `
-    <article class="card" data-cat="${p.cat || ''}">
+    <article class="card" data-cat="${p.cat || ''}" ${p.sku ? `data-sku="${p.sku}"` : ''}>
       <img src="${p.img}" width="1200" height="900" loading="lazy" alt="${p.alt || p.title || 'Προϊόν'}" />
       <div class="p">
         <h3>${p.title || 'Προϊόν'}</h3>
         ${p.meta ? `<div class="meta">${p.meta}</div>` : ''}
+        ${p.sku ? `<div class="sku muted">•${p.sku}</div>` : ''}
         <p class="price">${p.old ? `<s>${p.old}€</s>` : ''} <b>${p.price ? `${p.price}€` : ''}</b></p>
         <div class="buy">
-          <a class="btn btn-primary" href="tel:+302665409100">Τηλεφωνική παραγγελία</a>
+          <a class="btn btn-primary"
+             href="contact.html?intent=order&title=${encodeURIComponent(p.title||'')}${skuQS}">
+            Παραγγελία
+          </a>
         </div>
       </div>
     </article>`;
 }
-//          <a class="btn btn-ghost" href="#contact">Ρώτησε διαθεσιμότητα</a>
+
 
 function emptyTpl(){
   return `

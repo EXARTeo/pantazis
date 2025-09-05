@@ -250,17 +250,25 @@
     const old = p.old ? `<span class="old">${money(p.old)}</span>` : '';
     const meta = p.meta ? `<p class="meta">${esc(p.meta)}</p>` : '';
     const imgAlt = esc(p.alt || p.title || 'Προϊόν');
+    const skuQS = p.sku ? `&sku=${encodeURIComponent(p.sku)}` : '';
     return `
-      <article class="card" data-cat="${esc(p.cat||'')}" tabindex="0">
+      <article class="card" data-cat="${esc(p.cat||'')}" ${p.sku ? `data-sku="${esc(p.sku)}"` : ''} tabindex="0">
         <img src="${esc(p.img||'images/placeholder.jpg')}" alt="${imgAlt}" loading="lazy" width="800" height="600" />
         <div class="card-body">
           <h3 class="card-title">${esc(p.title||'Χωρίς τίτλο')}</h3>
           ${meta}
+          ${p.sku ? `<p class="sku muted">•${esc(p.sku)}</p>` : ''}
           <div class="price-row">${old}<span class="price">${money(p.price)}</span></div>
-          ${p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ''}
+          <div class="buy">
+            <a class="btn btn-primary"
+              href="contact.html?intent=order&title=${encodeURIComponent(p.title||'')}${skuQS}">
+              Επικοινωνία / Παραγγελία
+            </a>
+          </div>
         </div>
       </article>`;
   }
+
 
   function buildChips(categories){
     if (!chipsWrap) return;

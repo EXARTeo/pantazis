@@ -18,12 +18,13 @@
   },
   {
     "title": "Smart TV 55'' 4K",
-    "meta": "HDR10 • Wi-Fi",
+    "meta": "HDR10 - Wi-Fi",
     "old": "599",
     "price": "499",
     "cat": "av",
     "img": "images/tv55.jpg",
-    "alt": "Τηλεόραση 55 ιντσών 4K"
+    "alt": "Τηλεόραση 55 ιντσών 4K",
+    "sku": "7278327532653"
   },
   {
     "title": "Ατμοσίδερο Express Easy",
