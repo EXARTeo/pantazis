@@ -544,3 +544,146 @@ body.nav-open { overflow: hidden; }
   display: none;
 }
 .searchbar input[type="search"]::-ms-clear{ display:none; width:0; height:0; } /* legacy Edge/IE */
+
+
+/*////////////////////////////////////////////////////////////////////////////////////// */
+/* ======================  Contact — Lean Layout  ====================== */
+
+/* Όλα scoped σε .contact-lean για να μην αγγίζει άλλες σελίδες */
+.contact-lean h1{ margin-bottom:8px }
+.contact-lean > p.muted{ margin-top:0 }
+
+/* ---- Duo cards (Τηλέφωνο • Μήνυμα) ---- */
+.contact-lean .duo{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin:14px 0 18px;
+  align-items:stretch;
+}
+.contact-lean .card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  height:100%;
+  transition: transform .15s ease;   /* TODO */
+}
+.contact-lean .card-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:2px;
+}
+
+/* SVG icon styling */
+.contact-lean .card .icon svg{
+  width:20px; height:20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.contact-lean .card .icon .dot{
+  fill: currentColor;
+  stroke: none;
+}
+
+
+.contact-lean .card .icon{
+  width:40px;height:40px;border-radius:12px;
+  display:grid;place-items:center;font-size:20px;
+  background:#fafafa;border:1px solid #e5e7eb;
+}
+
+/* ---- Buttons layout ---- */
+.contact-lean .btn-row{ display:flex; flex-wrap:wrap; gap:8px }
+.contact-lean .btn-row .btn{ flex:1 1 auto; text-align:center }
+.contact-lean .btn-col{ display:grid; gap:8px; grid-auto-rows:minmax(44px,auto) }
+.contact-lean .btn-col .btn{ text-align:center }
+
+/* ---- Form ---- */
+.contact-lean .form{ margin-top:8px }
+.contact-lean .form h2{ margin:0 0 8px }
+.contact-lean .mini-form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.contact-lean .mini-form label{ display:grid; gap:6px; font-weight:600 }
+.contact-lean .mini-form input,
+.contact-lean .mini-form textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  font:inherit;
+}
+.contact-lean .mini-form textarea#message{ grid-column:1 / -1 } /* message full width */
+
+/* ---- Info / Map ---- */
+.contact-lean .info{ margin-top:16px }
+.contact-lean .info h2{ margin:0 0 8px }
+.contact-lean .info .list{ margin:0; padding-left:0; list-style:none }
+.contact-lean .info .list li + li{ margin-top:6px }
+
+.contact-lean .map{ margin-top:12px }
+.contact-lean .map h2{ margin:0 0 8px }
+.contact-lean .map-embed iframe{
+  width:100%;
+  aspect-ratio:16/10;   /* σύγχρονοι browsers */
+  min-height:320px;     /* fallback ύψος */
+  border:0;
+}
+
+/* ---- Focus (a11y) ---- */
+.contact-lean a.btn:focus-visible,
+.contact-lean input:focus-visible,
+.contact-lean textarea:focus-visible{
+  outline:2px solid var(--brand, #2418b8);
+  outline-offset:2px;
+}
+
+/* ---- Subtle hover (προαιρετικό, “corporate”) ---- */
+.contact-lean .card:hover{
+  transform:translateY(-1px);
+  transition:transform .15s ease;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 800px){
+  .contact-lean .duo{ grid-template-columns:1fr }
+}
+@media (max-width: 700px){
+  .contact-lean .mini-form{ grid-template-columns:1fr }
+  .contact-lean .mini-form textarea#message{ grid-column:auto }
+}
+
+
+/* ----- Info + Map side-by-side ----- */
+.contact-lean .info-map{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:16px;
+  align-items:stretch;
+}
+.contact-lean .info-map .box{ height:100% }
+
+/* Ήπιο ρυθμιστικό ύψος χάρτη για 2-στήλες */
+@media (min-width: 901px){
+  .contact-lean .map-embed iframe{
+    aspect-ratio: 4 / 3;   /* λίγο πιο «τετράγωνο» για ευαναγνωσία */
+    min-height: 380px;
+  }
+}
+
+/* Mobile στοίβαξη */
+@media (max-width: 900px){
+  .contact-lean .info-map{ grid-template-columns:1fr }
+  .contact-lean .map-embed iframe{
+    aspect-ratio: 16 / 10;
+    min-height: 320px;
+  }
+}

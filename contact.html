@@ -20,27 +20,36 @@
 
   <!-- Structured Data: ContactPage + αναφορά στο κατάστημα -->
   <script type="application/ld+json">
-  {
+    {
     "@context":"https://schema.org",
     "@type":"ContactPage",
-    "url":"https://www.example.com/contact.html",
+    "url":"https://ΤΟ-ΠΡΑΓΜΑΤΙΚΟ-DOMAIN/contact.html",
     "about":{
-      "@type":"ElectronicsStore",
-      "name":"Euronics Πανταζής — Ηγουμενίτσα",
-      "telephone":"+30 2665 409100",
-      "address":{
+        "@type":"ElectronicsStore",
+        "@id":"https://ΤΟ-ΠΡΑΓΜΑΤΙΚΟ-DOMAIN/#store",
+        "name":"Euronics Πανταζής — Ηγουμενίτσα",
+        "telephone":"+30 2665 409100",
+        "sameAs":[
+        "https://www.facebook.com/electro.pantazis/",
+        "https://www.instagram.com/pantaziseuronics/"
+        ],
+        "address":{
         "@type":"PostalAddress",
         "streetAddress":"49 Μαρτύρων 15",
         "addressLocality":"Ηγουμενίτσα",
         "addressRegion":"Ήπειρος",
         "postalCode":"46100",
         "addressCountry":"GR"
-      },
-      "areaServed":["Ήπειρος"],
-      "openingHours":["Mo-Fr 09:00-21:00","Sa 09:00-18:00"]
+        },
+        "areaServed":["Ήπειρος", "Κέρκυρα"],
+        "openingHoursSpecification":[
+        {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"21:00"},
+        {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"18:00"}
+        ]
     }
-  }
+    }
   </script>
+
 </head>
 
 
@@ -68,65 +77,109 @@
     </div>
   </nav>
 
-  <main id="main" class="section">
-    <div class="container">
-      <h1>Επικοινωνία</h1>
-      <p class="muted">Διαλέξτε πώς θέλετε να μιλήσουμε. Αν ήρθατε από προϊόν, η φόρμα θα συμπληρωθεί αυτόματα.</p>
+    <main id="main" class="section">
+    <div class="container contact-lean">
+        <h1>Επικοινωνία</h1>
+        <p class="muted">Διάλεξε αν θες να μιλήσουμε τώρα ή να μας στείλεις μήνυμα. Μετά, αν προτιμάς, μπορείς να χρησιμοποιήσεις τη φόρμα.</p>
 
-      <!-- Επιλογές επικοινωνίας: 2 τηλέφωνα + email + φόρμα -->
-      <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:16px;margin:14px 0 24px">
-        <div class="box">
-          <h2 style="margin-top:0">Κλήση στο <span style="white-space:nowrap">Σταθερό</span></h2>
-          <p>Για άμεση ενημέρωση διαθεσιμότητας, τιμών και παραδόσεων.</p>
-          <a class="btn btn-big" href="tel:+302665409100" aria-label="Κλήση στο σταθερό 2665 409100">2665 409100</a>
-        </div>
-        <div class="box">
-          <h2 style="margin-top:0">Κλήση στο <span style="white-space:nowrap">Κινητό</span></h2>
-          <p>Για τεχνικές απορίες και συνεννόηση εκτός ωραρίου καταστήματος.</p>
-          <a class="btn btn-big" href="tel:+306959666060" aria-label="Κλήση στο κινητό 6959 66 6060">6959 66 6060</a>
-        </div>
-        <div class="box">
-          <h2 style="margin-top:0">Email</h2>
-          <p>Θέλετε γραπτώς; Στείλτε μας μήνυμα και θα απαντήσουμε σύντομα.</p>
-          <a class="btn btn-ghost" href="mailto:pantazis@euronics.gr">pantazis@euronics.gr</a>
-        </div>
-        <div class="box">
-          <h2 style="margin-top:0">Γρήγορη φόρμα</h2>
-          <form id="contactForm" action="mailto:pantazis@euronics.gr" method="post" enctype="text/plain">
-            <label>Ονοματεπώνυμο<br><input name="name" required placeholder="Π.χ. Μαρία Παπαδοπούλου"></label><br>
-            <label>Τηλέφωνο<br><input name="phone" required inputmode="tel" placeholder="69xx xxx xxx"></label><br>
-            <label>Email (προαιρετικό)<br><input name="email" type="email" placeholder="name@example.com"></label><br>
-            <label>Μήνυμα<br><textarea id="message" name="message" rows="4" placeholder="Τι θα θέλατε;"></textarea></label><br>
+        <!-- 1. Τηλέφωνο & Μήνυμα (δίπλα-δίπλα) -->
+        <section class="duo" aria-label="Γρήγορες επιλογές επικοινωνίας">
+        <!-- Τηλέφωνο -->
+        <article class="box card call">
+            <header class="card-head">
+            <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="6" y="2" width="12" height="20" rx="2" ry="2"></rect>
+                    <circle cx="12" cy="18" r="1"></circle>
+                </svg>
+            </div>
+            <h2>Τηλέφωνο</h2>
+            </header>
+            <p class="muted">Για άμεση απάντηση σε διαθεσιμότητα, τιμές και παραδόσεις.</p>
+            <div class="btn-row">
+            <a class="btn btn-primary" href="tel:+302665409100" aria-label="Κλήση στο σταθερό 2665 409100">Σταθερό • 2665 409100</a>
+            <a class="btn" href="tel:+306959666060" aria-label="Κλήση στο κινητό 6959 66 6060">Κινητό • 6959 66 6060</a>
+            </div>
+        </article>
+
+        <!-- Μήνυμα -->
+        <article class="box card msg">
+            <header class="card-head">
+            <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="3" y="4" width="18" height="14" rx="2" ry="2"></rect>
+                    <path d="M8 18H7l-3 3v-3"></path>
+                    <circle class="dot" cx="9"  cy="11" r="1.2"></circle>
+                    <circle class="dot" cx="12" cy="11" r="1.2"></circle>
+                    <circle class="dot" cx="15" cy="11" r="1.2"></circle>
+                </svg>
+            </div>
+            <h2>Μήνυμα</h2>
+            </header>
+            <p class="muted">Ιδανικό αν θες γραπτώς ή να στείλεις φωτογραφίες/μοντέλα.</p>
+            <div class="btn-col">
+            <a id="viber" class="btn btn-primary" href="viber://chat?number=%2B306959666060">Viber</a>
+            <a id="wa" class="btn" target="_blank" rel="noopener" href="https://wa.me/306959666060">WhatsApp</a>
+            <a id="email" class="btn" href="mailto:pantazis@euronics.gr">Email</a>
+            </div>
+        </article>
+        </section>
+
+        <!-- 2. Φόρμα επικοινωνίας -->
+        <section class="box form" aria-label="Φόρμα επικοινωνίας">
+        <h2>Γρήγορη φόρμα</h2>
+        <form id="contactForm" action="mailto:pantazis@euronics.gr" method="post" enctype="text/plain" class="mini-form">
+            <label for="name">Ονοματεπώνυμο
+            <input id="name" name="name" autocomplete="name" required placeholder="Π.χ. Μαρία Παπαδοπούλου">
+            </label>
+            <label for="phone">Τηλέφωνο
+            <input id="phone" name="phone" autocomplete="tel" inputmode="tel" required placeholder="69xx xxx xxx">
+            </label>
+            <label for="email">Email (προαιρετικό)
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
+            </label>
+            <label for="message">Μήνυμα
+            <textarea id="message" name="message" rows="4" placeholder="Τι θα θέλατε;"></textarea>
+            </label>
             <button class="btn btn-primary" type="submit">Αποστολή</button>
-          </form>
-          <small class="muted">* Η αποστολή μέσω email client είναι ενδεικτική· μπορούμε να το αλλάξουμε σε server-side όταν θες.</small>
-        </div>
-      </div>
+        </form>
 
-      <!-- Διεύθυνση & Χάρτης -->
-      <div class="contact" style="margin-top:8px">
-        <div class="box">
-          <h2 style="margin:0 0 8px">Διεύθυνση</h2>
-          <ul class="list">
-            <li><b>Κατάστημα:</b> 49 Μαρτύρων 15 — Ηγουμενίτσα</li>
-            <li><b>Ώρες:</b> Δευ–Παρ 09:00–21:00, Σαβ 09:00–18:00</li>
-            <li><b>Περιοχές παράδοσης:</b> Ήπειρος (κατόπιν συνεννόησης)</li>
-          </ul>
-          <div class="cta" style="justify-content:flex-start">
-            <a class="btn" href="https://www.google.com/maps/place/Euronics+%CE%A0%CE%B1%CE%BD%CF%84%CE%B1%CE%B6%CE%AE%CF%82/@39.4972044,20.2607816,17z" target="_blank" rel="noopener">Άνοιξε στο Google Maps</a>
-          </div>
-        </div>
-        <div class="box">
-          <h2 style="margin:0 0 8px">Χάρτης</h2>
-          <iframe title="Χάρτης καταστήματος"
-                  width="600" height="400" loading="lazy"
-                  src="https://maps.google.com/maps?hl=el&q=49%20%CE%9C%CE%B1%CF%81%CF%84%CF%8D%CF%81%CF%89%CE%BD%2015%20%CE%97%CE%B3%CE%BF%CF%85%CE%BC%CE%B5%CE%BD%CE%AF%CF%84%CF%83%CE%B1&t=m&z=16&output=embed&iwloc=near"></iframe>
-        </div>
-      </div>
+        <!-- <small class="muted">* Προς το παρόν ανοίγει τον email client· μπορούμε να το κάνουμε server-side όποτε θες.</small> -->
+        </section>
+
+        <section class="info-map" aria-label="Στοιχεία & Χάρτης">
+            <!-- 3. Στοιχεία & Ωράριο -->
+            <section class="box info" aria-label="Στοιχεία & Ωράριο">
+            <h2>Στοιχεία & Ωράριο</h2>
+            <ul class="list">
+                <li><b>Κατάστημα:</b> 49 Μαρτύρων 15 — Ηγουμενίτσα</li>
+                <li><b>Ωράριο:</b> Δευ–Παρ 09:00–21:00, Σαβ 09:00–18:00</li>
+                <li><b>Παραδόσεις:</b> Ήπειρος (κατόπιν συνεννόησης)</li>
+            </ul>
+            <div class="cta" style="justify-content:flex-start">
+                <a class="btn" target="_blank" rel="noopener"
+                href="https://www.google.com/maps/place/Euronics+%CE%A0%CE%B1%CE%BD%CF%84%CE%B1%CE%B6%CE%AE%CF%82/@39.4972044,20.2607816,17z/data=!3m1!4b1!4m6!3m5!1s0x135b7fef5e9b44c1:0x2e7c6b0351777df1!8m2!3d39.4972045!4d20.2656525!16s%2Fg%2F11rndhl_5c?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D">
+                Άνοιξε στο Google Maps
+                </a>
+            </div>
+            </section>
+
+            <!-- 4. Χάρτης -->
+            <section class="box map" aria-label="Χάρτης">
+            <h2>Χάρτης</h2>
+            <div class="map-embed">
+                <iframe title="Χάρτης καταστήματος"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    src="https://maps.google.com/maps?hl=el&q=49%20%CE%9C%CE%B1%CF%81%CF%84%CF%8D%CF%81%CF%89%CE%BD%2015%20%CE%97%CE%B3%CE%BF%CF%85%CE%BC%CE%B5%CE%BD%CE%AF%CF%84%CF%83%CE%B1&t=m&z=16&output=embed&iwloc=near"></iframe>
+            </div>
+            </section>
+        </section>
     </div>
-  </main>
+    </main>
 
-  <!-- Sitewide footer (όπως το έχεις) -->
+
+
+    <!-- Sitewide footer (όπως το έχεις) -->
     <footer class="site-footer" role="contentinfo">
         <div class="container footer-top">
             <div class="footer-contacts">
@@ -188,48 +241,31 @@
         </div>
     </footer>
 
-  <script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 
-  <script>
-  // Prefill φόρμας από URL params (π.χ. ?sku=ABC123&title=Smart%20TV&intent=order)
-  (function(){
-    const p = new URLSearchParams(location.search);
-    const parts = [];
-    const title = p.get('title');   if (title) parts.push(`Προϊόν: ${title}`);
-    const sku   = p.get('sku');     if (sku)   parts.push(`SKU: ${sku}`);
-    const it    = p.get('intent');  if (it)    parts.push(`Αίτημα: ${it==='availability'?'Διαθεσιμότητα': it==='offer'?'Προσφορά':'Παραγγελία'}`);
-    if (parts.length){
-      const msg = document.getElementById('message');
-      if (msg && !msg.value) msg.value = parts.join(' • ');
-    }
-  })();
-  </script>
+    <script>
+        (function(){
+        const p = new URLSearchParams(location.search);
+        const parts = [];
+        const title = p.get('title'); if (title) parts.push(`Προϊόν: ${title}`);
+        const sku   = p.get('sku');   if (sku)   parts.push(`SKU: ${sku}`);
+        const it    = p.get('intent');
+        if (it) {
+            const label = it==='availability' ? 'Διαθεσιμότητα' : it==='offer' ? 'Προσφορά' : 'Παραγγελία';
+            parts.push(`Αίτημα: ${label}`);
+        }
+        const prefill = parts.join(' • ');
 
-  <script>
-  // Αντικατέστησε το default cardTpl μόνο για τη σελίδα products
-  window.cardTpl = function(p){
-      const esc = s => String(s==null?'' : s)
-      .replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-      const qs = new URLSearchParams({
-      title: p.title || '',
-      sku: p.sku || '',
-      intent: 'order'
-      }).toString();
-      return `
-      <article class="card" data-cat="${esc(p.cat||'')}">
-          <img src="${esc(p.img||'images/placeholder.jpg')}" width="1200" height="900" loading="lazy" alt="${esc(p.alt||p.title||'Προϊόν')}" />
-          <div class="p">
-          <h3>${esc(p.title||'Χωρίς τίτλο')}</h3>
-          ${p.meta ? `<div class="meta">${esc(p.meta)}</div>` : ''}
-          <p class="price">${p.old ? `<s>${esc(p.old)}€</s>` : ''} <b>${esc(p.price)}€</b></p>
-          <div class="buy">
-              <a class="btn btn-ghost" href="contact.html?${qs}">Αίτηση Παραγγελίας</a>
-              <a class="btn btn-primary only-mobile" href="tel:+302665409100">Κάλεσέ μας</a>
-          </div>
-          </div>
-      </article>`;
-  };
-  </script>
+        const msg = document.getElementById('message');
+        if (prefill && msg && !msg.value) msg.value = prefill;
+
+        const text = encodeURIComponent((prefill ? prefill + ' — ' : '') + 'Γεια σας, θα ήθελα ενημέρωση.');
+        const wa = document.getElementById('wa');
+        const email = document.getElementById('email');
+        if (wa) wa.href = `https://wa.me/306959666060?text=${text}`;
+        if (email) email.href = `mailto:pantazis@euronics.gr?subject=${encodeURIComponent('Επικοινωνία από το site')}&body=${text}`;
+        })();
+    </script>
 
 </body>
 </html>
