@@ -145,7 +145,7 @@ img{max-width:100%;display:block;height:auto}
 .about h2{margin:0 0 8px}
 
 /* ----------------------------------  Brands  ----------------------------- */
-.brands{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.brands{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
 .brand-box{
   background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;
   display:grid;place-items:center;height:62px
@@ -303,10 +303,6 @@ footer small{opacity:.9}
   .footer-contacts{grid-template-columns:1fr}
 }
 
-
-
-
-
 /* κρύβεται πάντα */
 .skip{position:absolute;left:-9999px;top:auto}
 /* φαίνεται ΜΟΝΟ σε focus από πληκτρολόγιο */
@@ -314,9 +310,12 @@ footer small{opacity:.9}
   left:8px;top:8px;background:#fff;padding:8px 12px;border-radius:8px;z-index:1000
 }
 
-
 /* Κλείδωμα scroll όταν το mobile menu είναι ανοικτό */
 body.nav-open { overflow: hidden; }
+
+/* Gapper */
+.gap { margin-block-start: var(--gap, 32px); }  
+
 
 /* --- Mobile / Tablet fixes --- */
 @media (max-width: 992px){
@@ -334,6 +333,9 @@ body.nav-open { overflow: hidden; }
 
 /* --- Mobile <=768px overrides --- */
 @media (max-width: 768px){
+  
+  .gap { margin-block-start: calc(var(--gap, 32px) * .65); }
+
   /* NAV: hamburger δεξιά */
   .hamb{
     display:inline-flex;align-items:center;justify-content:center;
@@ -405,6 +407,31 @@ body.nav-open { overflow: hidden; }
   .strip ul{grid-template-columns:1fr 1fr}
   .about{grid-template-columns:1fr;gap:18px}
   .contact{grid-template-columns:1fr;gap:18px}
+
+  /* reviews */
+  .reviews{
+    display: grid;
+    grid-template-columns:1fr;
+    gap: 10px;
+  }
+  .review{
+    padding: 10px;              /* πιο μικρό padding */
+    border-radius: 12px;        /* προαιρετικά λίγο πιο “μαζεμένο” */
+  }
+  .review .stars{
+    font-size: 14px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .review p{
+    margin: 4px 0 6px;
+    font-size: 14px;            /* λίγο μικρότερο κείμενο */
+    line-height: 1.35;
+  }
+  .review small{
+    font-size: 12px;
+    opacity: .8;
+  }
 
   /* Map */
   #map iframe,.map iframe{width:100%;height:260px;border:0;border-radius:var(--radius)}
