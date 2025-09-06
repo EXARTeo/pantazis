@@ -220,5 +220,56 @@
     "cat": "imaging",
     "img": "images/tv55.jpg",
     "alt": "Drone με κάμερα 4K"
+  },
+  {
+    "title": "Πλυντήριο 8kg TurboWash™",
+    "meta": "10 χρόνια εγγύηση μοτέρ",
+    "old": "499",
+    "price": "389",
+    "cat": "appliances",
+    "sku": "wash-dry",
+    "img": "images/plintirio.jpg",
+    "alt": "Πλυντήριο 8 κιλών"
+  },
+  {
+    "title": "Smart TV 55'' 4K",
+    "meta": "HDR10 • Wi-Fi",
+    "old": "599",
+    "price": "499",
+    "cat": "av",
+    "sku": "tv",
+    "img": "images/tv55.jpg",
+    "alt": "Τηλεόραση 55 ιντσών 4K"
+  },
+  {
+    "title": "Αφυγραντήρας 20L",
+    "meta": "Ιονιστής • Συνεχής αποστράγγιση",
+    "old": "249",
+    "price": "199",
+    "cat": "climate",
+    "sku": "dehumid",
+    "img": "images/steam.jpg",
+    "alt": "Αφυγραντήρας 20 λίτρων"
+  },
+  {
+    "title": "Smartphone 128GB 5G",
+    "meta": "6.5'' OLED • 50MP",
+    "old": "349",
+    "price": "299",
+    "cat": "telephony",
+    "sku": "mobile",
+    "img": "images/tv55.jpg",
+    "alt": "Smartphone 5G 128GB"
+  },
+  {
+    "title": "Soundbar 2.1",
+    "meta": "Bluetooth • Subwoofer",
+    "old": "149",
+    "price": "129",
+    "cat": "av",
+    "sku": "av-peripherals",
+    "img": "images/tv55.jpg",
+    "alt": "Soundbar 2.1 καναλιών"
   }
 ]
+
