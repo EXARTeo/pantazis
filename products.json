@@ -3,7 +3,7 @@
     "title": "LG 32LQ63006LA 32'' Τηλεόραση",
     "cat": "tv",
     "sku": "8806091638359 - 108803",
-    "img": "images/XXX.jpg",
+    "img": "images/8806091638359.jpg",
     "alt": "LG 32LQ63006LA 32'' Τηλεόραση",
     "meta": "32'' LED Full HD, 1920×1080, α5 Gen5 AI, ThinQ AI & webOS",
     "price": 249
@@ -12,7 +12,7 @@
     "title": "LG 32LQ630B6LA 32'' Τηλεόραση",
     "cat": "tv",
     "sku": "8806091660848 - 106202",
-    "img": "images/XXX.jpg",
+    "img": "images/8806091660848.jpg",
     "alt": "LG 32LQ630B6LA 32'' Τηλεόραση",
     "meta": "32'' LED, ThinQ AI & webOS",
     "price": 229
@@ -21,7 +21,7 @@
     "title": "LG 43NANO82T6B 43'' Τηλεόραση",
     "cat": "tv",
     "sku": "8806087330182 - 133996",
-    "img": "images/XXX.jpg",
+    "img": "images/8806087330182.jpg",
     "alt": "LG 43NANO82T6B 43'' Τηλεόραση",
     "meta": "43'' 4K UHD NanoCell, webOS",
     "price": 399
@@ -30,7 +30,7 @@
     "title": "LG 43UA73006LA 43'' Τηλεόραση",
     "cat": "tv",
     "sku": "8806091744883 - 112733",
-    "img": "images/XXX.jpg",
+    "img": "images/8806091744883.jpg",
     "alt": "LG 43UA73006LA 43'' Τηλεόραση",
     "meta": "43'' 4K UHD, webOS",
     "price": 369
@@ -39,7 +39,7 @@
     "title": "LG 43UR78006LK 43'' Τηλεόραση",
     "cat": "tv",
     "sku": "8806092262034 - 97224",
-    "img": "images/XXX.jpg",
+    "img": "images/8806092262034.jpg",
     "alt": "LG 43UR78006LK 43'' Τηλεόραση",
     "meta": "43'' 4K UHD, webOS",
     "price": 329
@@ -48,7 +48,7 @@
     "title": "LG SN4 2.1ch Soundbar",
     "cat": "av-peripherals",
     "sku": "0719192641143 - 89406",
-    "img": "images/XXX.jpg",
+    "img": "images/0719192641143.jpg",
     "alt": "LG SN4 2.1ch Soundbar",
     "meta": "2.1ch 300W, DTS Virtual:X, Bluetooth",
     "price": 169
@@ -57,7 +57,7 @@
     "title": "ΔΑΜΚΑΛΙΔΗΣ S43 Επιτοίχια Βάση Τηλεόρασης",
     "cat": "av-peripherals",
     "sku": "5202897003446 - 70985",
-    "img": "images/XXX.jpg",
+    "img": "images/5202897003446.jpg",
     "alt": "ΔΑΜΚΑΛΙΔΗΣ S43 Επιτοίχια Βάση Τηλεόρασης",
     "meta": "Για 17''–43'', έως 26kg, Tilt -12°~+12°, VESA",
     "price": 32.9
@@ -66,7 +66,7 @@
     "title": "Epson CO-W01 Projector",
     "cat": "av-peripherals",
     "sku": "8715946706849 - 116887",
-    "img": "images/XXX.jpg",
+    "img": "images/8715946706849.jpg",
     "alt": "Epson CO-W01 Projector",
     "meta": "WXGA 3LCD, 3000 lumen, HDMI",
     "price": 469
@@ -75,18 +75,17 @@
     "title": "EGOBOO X MAUI Vibes Sand Φορητό Ηχείο",
     "cat": "av-peripherals",
     "sku": "7483540310960 - 137489",
-    "img": "images/XXX.jpg",
+    "img": "images/7483540310960.jpg",
     "alt": "EGOBOO X MAUI Vibes Sand Φορητό Ηχείο",
     "meta": "Bluetooth, 20W, μπαταρία 3600mAh, IPX5",
     "price": 59.99
   },  
-  
 
   {
     "title": "KIDDOBOO Fotofun Blue Φωτογραφική Μηχανή",
     "cat": "cameras",
     "sku": "311381 - 130750",
-    "img": "images/XXX.jpg",
+    "img": "images/311381.jpg",
     "alt": "KIDDOBOO Fotofun Blue Φωτογραφική Μηχανή",
     "meta": "Παιδική φωτογραφική μηχανή, εύκολη χρήση",
     "price": 49.99
@@ -95,7 +94,7 @@
     "title": "KIDDOBOO Fotofun Pink Φωτογραφική Μηχανή",
     "cat": "cameras",
     "sku": "311380 - 130749",
-    "img": "images/XXX.jpg",
+    "img": "images/311380.jpg",
     "alt": "KIDDOBOO Fotofun Pink Φωτογραφική Μηχανή",
     "meta": "Παιδική φωτογραφική μηχανή, εύκολη χρήση",
     "price": 49.99
@@ -104,7 +103,7 @@
     "title": "CANON 4000D 18-55 Φωτογραφική Μηχανή DSLR",
     "cat": "cameras",
     "sku": "4549292174908 - 115531",
-    "img": "images/XXX.jpg",
+    "img": "images/4549292174908.jpg",
     "alt": "CANON 4000D 18-55 Φωτογραφική Μηχανή DSLR",
     "meta": "DSLR kit 18-55mm, Wi-Fi",
     "price": 399
@@ -113,7 +112,7 @@
     "title": "CANON 2000D IS 18-55 Φωτογραφική Μηχανή",
     "cat": "cameras",
     "sku": "8714574664099 - 110243",
-    "img": "images/XXX.jpg",
+    "img": "images/8714574664099.jpg",
     "alt": "CANON 2000D IS 18-55 Φωτογραφική Μηχανή",
     "meta": "DSLR kit 18-55mm IS, εύκολη χρήση",
     "price": 499
@@ -122,7 +121,7 @@
     "title": "EGOBOO X MAUI AND SONS ACTION EYE PRO Action Camera",
     "cat": "cameras",
     "sku": "5207244011235 - 131703",
-    "img": "images/XXX.jpg",
+    "img": "images/5207244011235.jpg",
     "alt": "EGOBOO X MAUI AND SONS ACTION EYE PRO Action Camera",
     "meta": "4K video, οθόνη 2,33'', φακός 154°, έως 20MP",
     "price": 179.99
@@ -132,7 +131,7 @@
     "title": "SHIFTCAM Snap Grip Midnight Λαβή Smartphone",
     "cat": "imaging-acc",
     "sku": "655729667623 - 116831",
-    "img": "images/XXX.jpg",
+    "img": "images/655729667623.jpg",
     "alt": "SHIFTCAM Snap Grip Midnight Λαβή Smartphone",
     "meta": "Μαγνητική λαβή με ασύρματο κλείστρο & Qi 3200mAh",
     "price": 89.99
@@ -141,7 +140,7 @@
     "title": "SHIFTCAM SnapLight Midnight Smartphone Led",
     "cat": "imaging-acc",
     "sku": "655729667678 - 116832",
-    "img": "images/XXX.jpg",
+    "img": "images/655729667678.jpg",
     "alt": "SHIFTCAM SnapLight Midnight Smartphone Led",
     "meta": "Μαγνητικός δακτύλιος LED, 4 επίπεδα φωτεινότητας",
     "price": 39.99
@@ -150,7 +149,7 @@
     "title": "SHIFTCAM SnapPod Midnight Smartphone Τρίποδο",
     "cat": "imaging-acc",
     "sku": "655729667722 - 116833",
-    "img": "images/XXX.jpg",
+    "img": "images/655729667722.jpg",
     "alt": "SHIFTCAM SnapPod Midnight Smartphone Τρίποδο",
     "meta": "Selfie-stick / τρίποδο με μαγνητική βάση",
     "price": 39.99
@@ -159,19 +158,17 @@
     "title": "SHIFTCAM Snap Grip Creator Kit Midnight Smartphone Kit",
     "cat": "imaging-acc",
     "sku": "655729667821 - 116830",
-    "img": "images/XXX.jpg",
+    "img": "images/655729667821.jpg",
     "alt": "SHIFTCAM Snap Grip Creator Kit Midnight Smartphone Kit",
     "meta": "Πακέτο SnapGrip + SnapPod + SnapLight",
     "price": 149.99
   },
 
-
-
   {
     "title": "Apple MacBook Air 13.6'' M2 8GB/256GB (Midnight, 2022)",
     "cat": "laptop",
     "sku": "195949838033 - 142890",
-    "img": "images/XXX.jpg",
+    "img": "images/195949838033.jpg",
     "alt": "Apple MacBook Air 13.6'' M2 8GB/256GB (Midnight, 2022)",
     "meta": "13.6'' Liquid Retina, Apple M2, 8GB RAM, 256GB SSD",
     "price": 1099
@@ -180,7 +177,7 @@
     "title": "Apple MacBook Air 13'' M2 8GB/512GB (2022)",
     "cat": "laptop",
     "sku": "195949839405 - 144104",
-    "img": "images/XXX.jpg",
+    "img": "images/195949839405.jpg",
     "alt": "Apple MacBook Air 13'' M2 8GB/512GB (2022)",
     "meta": "13'' Retina, Apple M2, 8GB RAM, 512GB SSD",
     "price": 1599
@@ -189,7 +186,7 @@
     "title": "Apple MacBook Pro 14'' M3 Pro 18GB/512GB",
     "cat": "laptop",
     "sku": "195949141942 - 144105",
-    "img": "images/XXX.jpg",
+    "img": "images/195949141942.jpg",
     "alt": "Apple MacBook Pro 14'' M3 Pro 18GB/512GB",
     "meta": "14'' Liquid Retina XDR, Apple M3 Pro, 18GB RAM, 512GB SSD",
     "price": 1599
@@ -198,7 +195,7 @@
     "title": "Apple MacBook Pro 16'' M1 Max 32GB/1TB",
     "cat": "laptop",
     "sku": "194252545290 - 124154",
-    "img": "images/XXX.jpg",
+    "img": "images/194252545290.jpg",
     "alt": "Apple MacBook Pro 16'' M1 Max 32GB/1TB",
     "meta": "16'' Liquid Retina XDR, Apple M1 Max, 32GB RAM, 1TB SSD",
     "price": 2349
@@ -207,19 +204,17 @@
     "title": "Apple MacBook Pro 14'' M3 Max 48GB/1TB",
     "cat": "laptop",
     "sku": "195949128806 - 144106",
-    "img": "images/XXX.jpg",
+    "img": "images/195949128806.jpg",
     "alt": "Apple MacBook Pro 14'' M3 Max 48GB/1TB",
     "meta": "14'' Liquid Retina XDR, Apple M3 Max, 48GB RAM, 1TB SSD",
     "price": 2299
   },
 
-
-
   {
     "title": "INTRA PC BUSINESS i3 12th GEN Desktop",
     "cat": "desktop",
     "sku": "0303112874 - 124567",
-    "img": "images/XXX.jpg",
+    "img": "images/0303112874.jpg",
     "alt": "INTRA PC BUSINESS i3 12th GEN Desktop",
     "meta": "Intel Core i3-12100, 8GB RAM, 500GB SSD, Windows 11 Home",
     "price": 499
@@ -228,7 +223,7 @@
     "title": "INTRA PC BUSINESS i5 12th GEN Desktop",
     "cat": "desktop",
     "sku": "0303112879 - 129973",
-    "img": "images/XXX.jpg",
+    "img": "images/0303112879.jpg",
     "alt": "INTRA PC BUSINESS i5 12th GEN Desktop",
     "meta": "Intel Core i5-12400, 8GB RAM, 500GB SSD, Windows 11 Home",
     "price": 519
@@ -237,7 +232,7 @@
     "title": "INTRA PC BUSINESS i7 12th GEN Desktop",
     "cat": "desktop",
     "sku": "0303112880 - 129974",
-    "img": "images/XXX.jpg",
+    "img": "images/0303112880.jpg",
     "alt": "INTRA PC BUSINESS i7 12th GEN Desktop",
     "meta": "Intel Core i7-12700, 16GB RAM, 1TB SSD, Windows 11 Home",
     "price": 899
@@ -246,7 +241,7 @@
     "title": "INTRA PC SFX BUSINESS R5 5600G Desktop",
     "cat": "desktop",
     "sku": "0303113031 - 131533",
-    "img": "images/XXX.jpg",
+    "img": "images/0303113031.jpg",
     "alt": "INTRA PC SFX BUSINESS R5 5600G Desktop",
     "meta": "AMD Ryzen 5 5600G, 16GB RAM, 500GB SSD, Windows 11 Home",
     "price": 649
@@ -255,18 +250,17 @@
     "title": "ASUS ROG Strix GT15 Gaming Desktop",
     "cat": "desktop",
     "sku": "0195553911352 - 122151",
-    "img": "images/XXX.jpg",
+    "img": "images/0195553911352.jpg",
     "alt": "ASUS ROG Strix GT15 Gaming Desktop",
     "meta": "Intel Core i5 σειράς 12ης γεν., 16GB RAM, 512GB SSD, NVIDIA GeForce",
     "price": 1399
   },
 
-
   {
     "title": "LOGITECH G102 Λευκό Gaming Ενσύρματο Ποντίκι",
     "cat": "pc-peripherals",
     "sku": "5099206089242 - 107410",
-    "img": "images/XXX.jpg",
+    "img": "images/5099206089242.jpg",
     "alt": "LOGITECH G102 Λευκό Gaming Ενσύρματο Ποντίκι",
     "meta": "Ενσύρματο, έως 8.000 DPI, 1.000Hz, RGB",
     "price": 30
@@ -275,7 +269,7 @@
     "title": "CONCEPTUM Black Dragon G901 Ενσύρματο Πληκτρολόγιο-Ποντίκι (Σετ 4-in-1)",
     "cat": "pc-peripherals",
     "sku": "5200250812865 - 80145",
-    "img": "images/XXX.jpg",
+    "img": "images/5200250812865.jpg",
     "alt": "CONCEPTUM Black Dragon G901 Ενσύρματο Πληκτρολόγιο-Ποντίκι (Σετ 4-in-1)",
     "meta": "Mechanical TKL πληκτρολόγιο, mouse, mousepad & headset, RGB",
     "price": 59
@@ -284,7 +278,7 @@
     "title": "NGS GSX-150 Ηχεία Υπολογιστή",
     "cat": "pc-peripherals",
     "sku": "8435430619287 - 105724",
-    "img": "images/XXX.jpg",
+    "img": "images/8435430619287.jpg",
     "alt": "NGS GSX-150 Ηχεία Υπολογιστή",
     "meta": "2.0 USB, 2×6W, LED RGB",
     "price": 24
@@ -293,7 +287,7 @@
     "title": "NGS MSX 103 Ακουστικά",
     "cat": "pc-peripherals",
     "sku": "8436001280455 - 93384",
-    "img": "images/XXX.jpg",
+    "img": "images/8436001280455.jpg",
     "alt": "NGS MSX 103 Ακουστικά",
     "meta": "Ενσύρματα, βύσμα 3.5mm, in-line ένταση",
     "price": 9
@@ -302,7 +296,7 @@
     "title": "TRUST GXT 212 Mico Μικρόφωνο",
     "cat": "pc-peripherals",
     "sku": "8713439237917 - 119038",
-    "img": "images/XXX.jpg",
+    "img": "images/8713439237917.jpg",
     "alt": "TRUST GXT 212 Mico Μικρόφωνο",
     "meta": "USB & 3.5mm, omnidirectional, τρίποδο",
     "price": 25
@@ -311,7 +305,7 @@
     "title": "NGS BUD-AC Σετ 4 Βύσματα Φόρτισης (USB-C → Acer)",
     "cat": "pc-peripherals",
     "sku": "8435430625141 - 145645",
-    "img": "images/XXX.jpg",
+    "img": "images/8435430625141.jpg",
     "alt": "NGS BUD-AC Σετ 4 Βύσματα Φόρτισης (USB-C → Acer)",
     "meta": "Σετ αντάπτορων PD για φορητούς Acer (4 μεγέθη ακίδων)",
     "price": 11
