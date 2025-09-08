@@ -193,3 +193,84 @@ window.emptyTpl = emptyTpl;
 
   io.observe(footer);
 })();
+
+
+
+//billboard auto-slider
+(function(){
+  const bb = document.querySelector('.billboard');
+  if(!bb) return;
+
+  const slides = Array.from(bb.querySelectorAll('.slide'));
+  if(slides.length < 2) return; // αν έχεις μόνο μία εικόνα, δεν κάνουμε κάτι
+
+  const prevBtn = bb.querySelector('.bb-prev');
+  const nextBtn = bb.querySelector('.bb-next');
+
+  let i = 0, timer = null, intervalMs = 4500;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function show(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach((el, idx) => el.classList.toggle('active', idx === i));
+  }
+
+  function next(){ show(i + 1); }
+  function prev(){ show(i - 1); }
+
+  function start(){
+    if (prefersReduced) return; // σεβόμαστε reduced motion
+    stop();
+    timer = setInterval(next, intervalMs);
+  }
+  function stop(){
+    if(timer){ clearInterval(timer); timer = null; }
+  }
+
+  // Auto-play
+  start();
+
+  // Παύση στο hover/focus για καλύτερη UX
+  bb.addEventListener('mouseenter', stop);
+  bb.addEventListener('mouseleave', start);
+  bb.addEventListener('focusin', stop);
+  bb.addEventListener('focusout', start);
+
+  // Κουμπιά (αν υπάρχουν)
+  if(prevBtn) prevBtn.addEventListener('click', () => { prev(); start(); });
+  if(nextBtn) nextBtn.addEventListener('click', () => { next(); start(); });
+
+  // Swipe σε κινητά (προαιρετικό, μίνι υλοποίηση)
+  let touchX = null;
+  bb.addEventListener('touchstart', (e)=>{ touchX = e.touches[0].clientX; }, {passive:true});
+  bb.addEventListener('touchend',   (e)=>{
+    if(touchX == null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if(Math.abs(dx) > 40) { dx > 0 ? prev() : next(); start(); }
+    touchX = null;
+  });
+})();
+
+
+//Copy paste
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.copy-btn');
+  if (!btn) return;
+
+  const id = btn.getAttribute('data-target');
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const text = el.textContent.replace(/\s+/g, ' ').trim(); // καθαρό IBAN
+  navigator.clipboard.writeText(text).then(() => {
+    const prev = btn.innerHTML;
+    // check icon
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>';
+    btn.setAttribute('aria-label','Αντιγράφηκε');
+    setTimeout(() => {
+      btn.innerHTML = prev;
+      btn.setAttribute('aria-label','Αντιγραφή IBAN');
+    }, 1400);
+  });
+});
+

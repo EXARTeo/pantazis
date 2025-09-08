@@ -74,9 +74,18 @@
           </ul>
         </div>
 
-        <aside class="billboard" aria-label="Εικόνα παραδόσεων">
-          <img src="images/van.jpg" width="1600" height="900" alt="Van παραδόσεων σε κίνηση" />
+        <aside class="billboard" aria-label="Εικόνες Πανταζής (slider)">
+          <div class="slides">
+            <img class="slide active"  src="images/van.jpg"      width="1600" height="900" alt="Van παραδόσεων σε κίνηση">
+            <img class="slide"         src="images/KATO.png"     width="1600" height="900" alt="Σλόγκαν Πανταζής">
+            <img class="slide"         src="images/Euronics.png" width="1600" height="900" alt="Μαγαζί">
+          </div>
+
+          <!-- Προαιρετικά χειριστήρια (μπορείς να τα αφαιρέσεις αν δεν τα θέλεις) -->
+          <button class="bb-prev" aria-label="Προηγούμενη εικόνα">‹</button>
+          <button class="bb-next" aria-label="Επόμενη εικόνα">›</button>
         </aside>
+
       </div>
     </header>
 

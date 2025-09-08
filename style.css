@@ -92,6 +92,39 @@ img{max-width:100%;display:block;height:auto}
   position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/9
 }
 .billboard img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+
+.billboard .slides { position: absolute; inset: 0; }       /* <- ΝΕΟ / ΣΗΜΑΝΤΙΚΟ */
+
+.billboard .slide{
+  position: absolute; inset: 0; width: 100%; height: 100%; /* <- height:100% */
+  object-fit: cover; opacity: 0; transition: opacity .6s ease;
+}
+
+.billboard .slide.active{ opacity: 1; }
+.billboard::before{ /* κρατά αναλογία 16:9 για σταθερό layout πριν φορτώσουν οι εικόνες */
+  content:""; display:block; aspect-ratio:16 / 9;
+}
+
+/* Προαιρετικά: κουμπιά */
+.bb-prev,.bb-next{
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:rgba(15,23,42,.55); color:#fff; border:0; width:40px; height:40px;
+  border-radius:999px; font-size:22px; line-height:40px; text-align:center;
+  cursor:pointer; backdrop-filter:saturate(120%) blur(2px);
+}
+.bb-prev{ left:10px } .bb-next{ right:10px }
+.bb-prev:hover,.bb-next:hover{ background:rgba(15,23,42,.8) }
+
+/* Αν ο χρήστης έχει reduced motion, κόβουμε τα auto transitions */
+@media (prefers-reduced-motion: reduce){
+  .billboard .slide{ transition:none }
+}
+
+
+
+
+
+
 .badge{
   position:absolute;left:12px;bottom:12px;background:var(--accent);color:#000;
   font-weight:900;padding:10px 14px;border-radius:14px;
@@ -713,5 +746,115 @@ body.nav-open { overflow: hidden; }
   .contact-lean .map-embed iframe{
     aspect-ratio: 16 / 10;
     min-height: 320px;
+  }
+}
+
+/* =================== Payments (Τρόποι Πληρωμής) =================== */
+
+.contact-lean .payments{
+  margin: 26px 0;   /* πάνω-κάτω κενό */
+}
+
+/* Payments — remove right-edge fade on IBAN */
+.payments .payments-list .iban{
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+
+.payments h2 { margin-bottom: 10px; }
+.payments .muted { margin-top: 0; }
+
+.payments .payments-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;            /* μία κάτω από την άλλη με κενά */
+  gap: 12px;
+}
+
+/* Κάρτα/γραμμή κάθε τράπεζας */
+.payments .payments-list li{
+  display: grid;
+  grid-template-columns: 1fr auto;                 /* IBAN παίρνει όλο το διαθέσιμο, κουμπί στα δεξιά */
+  grid-template-areas:
+    "title title"
+    "iban  btn";
+  align-items: center;
+  gap: 8px 10px;
+
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+
+/* κρύψε το <br> από το markup για καθαρή διάταξη */
+.payments .payments-list li br{ display:none; }
+
+/* Τίτλος τράπεζας */
+.payments .payments-list li > b{
+  grid-area: title;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Η γραμμή IBAN: δεν τυλίγεται ποτέ και κάνει H-Scroll μόνο η ίδια */
+.payments .payments-list .iban{
+  grid-area: iban;
+  display: block;
+  max-width: 100%;
+  white-space: nowrap;          /* ΜΗΝ σπάσει */
+  overflow-x: auto;             /* μόνο οριζόντιο scroll */
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;  /* ομαλό scroll στα κινητά */
+  padding-bottom: 2px;          /* να μη “κολλάει” η μπάρα στο κείμενο */
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 14px;
+  letter-spacing: .4px;         /* μικρή απόσταση για ευκρίνεια IBAN */
+  color: #0f172a;
+}
+
+/* Κουμπί αντιγραφής */
+.payments .payments-list .copy-btn{
+  grid-area: btn;
+  appearance: none;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #f8fafc;
+  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+
+.payments .payments-list .copy-btn:hover{
+  background: #eef2ff;
+  border-color: rgba(0,0,0,.18);
+}
+
+.payments .payments-list .copy-btn:active{
+  transform: scale(.96);
+}
+
+.payments .payments-list .copy-btn:focus-visible{
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* Μικρές οθόνες: λίγο πιο “σφιχτή” τυπογραφία */
+@media (max-width: 420px){
+  .payments .payments-list li{
+    padding: 10px;
+    gap: 6px 8px;
+  }
+  .payments .payments-list .iban{
+    font-size: 13.5px;
   }
 }
