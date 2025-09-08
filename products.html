@@ -270,10 +270,32 @@
         if (!isFinite(n)) return esc(v);
         return new Intl.NumberFormat('el-GR', { style:'currency', currency:'EUR', maximumFractionDigits:0 }).format(n);
       };
-      const num = v => {
-        const n = Number(String(v ?? '').replace(/[^\d.,]/g,'').replace(/\./g,'').replace(',', '.'));
+      const num = (v) => {
+        if (typeof v === 'number') return v;
+        if (v == null) return 0;
+
+        // 1) καθάρισε space, €, κλπ. αλλά κράτα μόνο ψηφία, κόμμα, τελεία και -
+        let s = String(v).trim().replace(/[^\d.,-]/g, '');
+
+        // 2) βρες ποιος είναι ο δεκαδικός διαχωριστής (ο ΔΕΞΙΟΤΕΡΟΣ από κόμμα/τελεία)
+        const lastComma = s.lastIndexOf(',');
+        const lastDot   = s.lastIndexOf('.');
+        const hasSep    = (lastComma !== -1) || (lastDot !== -1);
+
+        if (hasSep) {
+          const decIdx  = Math.max(lastComma, lastDot);     // δεξιότερος διαχωριστής
+          const intPart = s.slice(0, decIdx).replace(/[^\d-]/g, ''); // βγάλε ΟΛΑ τα υπόλοιπα σημ. από το ακέραιο
+          const decPart = s.slice(decIdx + 1).replace(/[^\d]/g, ''); // κράτα μόνο ψηφία στο δεκαδικό
+          s = decPart ? `${intPart}.${decPart}` : intPart;   // φτιάξε canonical "1234.56"
+        } else {
+          // καθόλου κόμμα/τελεία -> απλό ακέραιο
+          s = s.replace(/[^\d-]/g, '');
+        }
+
+        const n = Number(s);
         return Number.isFinite(n) ? n : 0;
       };
+
       function sortList(list){
         if (!sortSel) return list;
         switch (sortSel.value) {
