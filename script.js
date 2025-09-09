@@ -116,7 +116,7 @@ function cardTpl(p){
         <div class="buy">
           <a class="btn btn-primary"
              itemprop="url"
-             href="contact.html?intent=order&title=${encodeURIComponent(p.title||'')}${skuQS}">
+             href="contact.html?intent=order${skuQS}">
             Παραγγελία
           </a>
         </div>

@@ -8,7 +8,7 @@
   <title>Επικοινωνία | Euronics Πανταζής — Ηγουμενίτσα (Εξυπηρέτηση σε όλη την Ήπειρο)</title>
   <meta name="description" content="Επικοινώνησε με το Euronics Πανταζής: τηλέφωνο, email, φόρμα. Εξυπηρέτηση και επισκέψεις σε Θεσπρωτία, Ιωάννινα, Πρέβεζα, Άρτα." />
   <link rel="canonical" href="https://pantazis-euronics.gr/contact.html" />
-  
+
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#0b57d0" />
 
@@ -191,19 +191,26 @@
         <h2>Γρήγορη φόρμα</h2>
         <form id="contactForm" action="mailto:pantazis@euronics.gr" method="post" enctype="text/plain" class="mini-form">
         <label>Ονοματεπώνυμο
-            <input name="name" autocomplete="name" required placeholder="Π.χ. Μαρία Παπαδοπούλου">
+        <input name="name" autocomplete="name" required
+                placeholder="P.x. Maria Papadopoulou"
+                data-ascii
+                pattern="[\x20-\x7E]{2,}"
+                title="Χρησιμοποιήστε λατινικούς χαρακτήρες (A–Z, 0–9, σημεία στίξης).">
         </label>
 
         <label>Τηλέφωνο
-            <input name="phone" autocomplete="tel" inputmode="tel" required placeholder="69xx xxx xxx">
+        <input name="phone" autocomplete="tel" inputmode="tel" required
+                placeholder="69xx xxx xxx"
+                pattern="[0-9+() \-]{6,}"
+                title="Μόνο νούμερα, +, παρενθέσεις και κενά.">
         </label>
 
         <label>Email (προαιρετικό)
-            <input name="email" type="email" autocomplete="email" placeholder="name@example.com">
+        <input name="email" type="email" autocomplete="email" placeholder="name@example.com">
         </label>
 
         <label>Μήνυμα
-            <textarea id="message" name="message" rows="4" placeholder="Τι θα θέλατε;"></textarea>
+        <textarea id="message" name="message" rows="2" placeholder="Write your message in Latin characters" data-ascii></textarea>
         </label>
 
         <button class="btn btn-primary" type="submit">Αποστολή</button>
@@ -356,28 +363,73 @@
 
     <script>
         (function(){
-        const p = new URLSearchParams(location.search);
-        const parts = [];
-        const title = p.get('title'); if (title) parts.push(`Προϊόν: ${title}`);
-        const sku   = p.get('sku');   if (sku)   parts.push(`SKU: ${sku}`);
-        const it    = p.get('intent');
-        if (it) {
-            const label = it==='availability' ? 'Διαθεσιμότητα' : it==='offer' ? 'Προσφορά' : 'Παραγγελία';
-            parts.push(`Αίτημα: ${label}`);
+        const $ = s => document.querySelector(s);
+
+        // ——— 1) ΜΟΝΟ ASCII (λατινικοί) για name & message ———
+        function toAscii(s){
+            if (!s) return '';
+            const map = {'Ά':'A','ά':'a','Α':'A','α':'a','Β':'V','β':'v','Γ':'G','γ':'g','Δ':'D','δ':'d','Ε':'E','ε':'e','Έ':'E','έ':'e','Ζ':'Z','ζ':'z','Η':'I','η':'i','Ή':'I','ή':'i','Θ':'Th','θ':'th','Ι':'I','ι':'i','Ί':'I','ί':'i','Ϊ':'I','ϊ':'i','ΐ':'i','Κ':'K','κ':'k','Λ':'L','λ':'l','Μ':'M','μ':'m','Ν':'N','ν':'n','Ξ':'X','ξ':'x','Ο':'O','ο':'o','Ό':'O','ό':'o','Π':'P','π':'p','Ρ':'R','ρ':'r','Σ':'S','σ':'s','ς':'s','Τ':'T','τ':'t','Υ':'Y','υ':'y','Ύ':'Y','ύ':'y','Ϋ':'Y','ϋ':'y','ΰ':'y','Φ':'F','φ':'f','Χ':'Ch','χ':'ch','Ψ':'Ps','ψ':'ps','Ω':'O','ω':'o','Ώ':'O','ώ':'o'};
+            let out = s.replace(/[\u0370-\u03FF\u1F00-\u1FFF]/g, ch => map[ch] || '');
+            out = out.normalize('NFKD').replace(/[\u0300-\u036f]/g,'');
+            out = out.replace(/[^\x20-\x7E]/g, ''); // κρατά μόνο εκτυπώσιμους ASCII
+            return out;
         }
+        function enforceAscii(el){
+            const fix = () => {
+            const cur = el.value;
+            const ascii = toAscii(cur);
+            if (cur !== ascii) {
+                const pos = el.selectionStart;
+                el.value = ascii;
+                if (pos != null) el.setSelectionRange(Math.min(pos, ascii.length), Math.min(pos, ascii.length));
+            }
+            };
+            el.addEventListener('input', fix);
+            el.addEventListener('blur', fix);
+        }
+        document.querySelectorAll('#contactForm [data-ascii]').forEach(enforceAscii);
 
-        const prefill = parts.join(' • ');
+        // Τηλέφωνο: μόνο ψηφία, +, κενά, παρενθέσεις, -
+        const phone = document.querySelector('#contactForm [name="phone"]');
+        phone?.addEventListener('input', () => {
+            const v = phone.value;
+            const cleaned = v.replace(/[^0-9+() \-]/g, '');
+            if (v !== cleaned) phone.value = cleaned;
+        });
+
+        // ——— 2) Prefill από προϊόν: ΧΩΡΙΣ τίτλο, ΜΟΝΟ λατινικά ———
+        const p = new URLSearchParams(location.search);
+        const /*title=*/ _title = p.get('title'); // αγνοείται επίτηδες
+        const sku = p.get('sku');
+        const it  = p.get('intent');
+        const intentLabel = it === 'availability' ? 'Availability'
+                            : it === 'offer'        ? 'Offer'
+                            : it ? 'Order' : '';
+
+        const parts = [];
+        if (sku) parts.push(`SKU: ${sku}`);
+        if (intentLabel) parts.push(`Request: ${intentLabel}`);
+        const prefill = parts.join(' · ');
+
         const msg = document.getElementById('message');
-        if (prefill && msg && !msg.value) msg.value = prefill;
+        if (prefill && msg && !msg.value) msg.value = toAscii(prefill);
 
-        const text = encodeURIComponent((prefill ? prefill + ' — ' : '') + 'Γεια σας, θα ήθελα ενημέρωση.');
+        // WhatsApp & Email με ASCII subject/body
+        const hi = 'Hello, please advise.';
+        const asciiText = toAscii((prefill ? prefill + ' - ' : '') + hi);
+
         const wa = document.getElementById('wa');
-        const email = document.getElementById('emailLink'); // <-- κουμπί Email
+        if (wa) wa.href = `https://wa.me/306959666060?text=${encodeURIComponent(asciiText)}`;
 
-        if (wa)    wa.href    = `https://wa.me/306959666060?text=${text}`;
-        if (email) email.href = `mailto:pantazis@euronics.gr?subject=${encodeURIComponent('Επικοινωνία από το site')}&body=${text}`;
+        const email = document.getElementById('emailLink');
+        if (email) {
+            const subj = toAscii(prefill || 'Contact from site');
+            const body = toAscii(hi);
+            email.href = `mailto:pantazis@euronics.gr?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+        }
         })();
     </script>
+
 
 </body>
 </html>
