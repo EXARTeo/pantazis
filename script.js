@@ -80,24 +80,51 @@ async function getProducts(){
 }
 
 function cardTpl(p){
-  const skuQS = p.sku ? `&sku=${encodeURIComponent(p.sku)}` : '';
+  const skuStr = p.sku ? String(p.sku) : '';
+  const skuQS  = p.sku ? `&sku=${encodeURIComponent(skuStr)}` : '';
+  const priceNum = (typeof p.price === 'number') ? p.price : Number(String(p.price||'').replace(/[^\d.,]/g,'').replace(/\./g, '').replace(',', '.')) || '';
+  const itemId = p.sku ? `sku-${skuStr.replace(/[^\w-]/g,'')}` : '';
+
   return `
-    <article class="card" data-cat="${p.cat || ''}" ${p.sku ? `data-sku="${p.sku}"` : ''}>
-      <img src="${p.img}" width="1200" height="900" loading="lazy" alt="${p.alt || p.title || 'Προϊόν'}" />
+    <article class="card"
+             id="${itemId}"
+             data-cat="${p.cat || ''}"
+             ${p.sku ? `data-sku="${skuStr}"` : ''}
+             itemscope itemtype="https://schema.org/Product">
+      <link itemprop="url" href="https://pantazis-euronics.gr/products.html${p.sku ? `?sku=${encodeURIComponent(skuStr)}` : ''}">
+      <meta itemprop="sku" content="${skuStr}">
+      ${p.brand ? `<meta itemprop="brand" content="${p.brand}">` : ''}
+
+      <img src="${p.img}" width="1200" height="900" loading="lazy"
+           alt="${p.alt || p.title || 'Προϊόν'}" itemprop="image" />
+
       <div class="p">
-        <h3>${p.title || 'Προϊόν'}</h3>
-        ${p.meta ? `<div class="meta">${p.meta}</div>` : ''}
-        ${p.sku ? `<div class="sku muted">•${p.sku}</div>` : ''}
-        <p class="price">${p.old ? `<s>${p.old}€</s>` : ''} <b>${p.price ? `${p.price}€` : ''}</b></p>
+        <h3 itemprop="name">${p.title || 'Προϊόν'}</h3>
+        ${p.meta ? `<div class="meta" itemprop="description">${p.meta}</div>` : ''}
+        ${p.sku ? `<div class="sku muted">•${skuStr}</div>` : ''}
+
+        <div class="price-wrap" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+          ${p.old ? `<span class="old"><s>${p.old}€</s></span>` : ''}
+          ${priceNum !== '' ? `<meta itemprop="price" content="${priceNum}">` : ''}
+          <span class="price"><b>${p.price ? `${p.price}€` : ''}</b></span>
+          <meta itemprop="priceCurrency" content="EUR" />
+          <link itemprop="availability" href="https://schema.org/InStoreOnly" />
+          <meta itemprop="itemCondition" content="https://schema.org/NewCondition" />
+          <link itemprop="seller" href="https://pantazis-euronics.gr/#store" />
+        </div>
+
         <div class="buy">
           <a class="btn btn-primary"
+             itemprop="url"
              href="contact.html?intent=order&title=${encodeURIComponent(p.title||'')}${skuQS}">
             Παραγγελία
           </a>
         </div>
       </div>
-    </article>`;
+    </article>
+  `;
 }
+
 
 
 function emptyTpl(){

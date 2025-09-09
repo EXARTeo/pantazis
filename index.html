@@ -4,34 +4,141 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Euronics Πανταζής — Ηγουμενίτσα</title>
-  <meta name="description" content="Euronics Πανταζής στην Ηγουμενίτσα. Προσφορές, μεταφορά & εγκατάσταση σε όλη την Ήπειρο, ώρες, χάρτης και άμεση επικοινωνία." />
-  <link rel="canonical" href="https://www.example.com/" />
-  <meta property="og:title" content="Euronics Πανταζής — Ηγουμενίτσα" />
-  <meta property="og:description" content="Προσφορές & υπηρεσίες με μεταφορά/εγκατάσταση σε όλη την Ήπειρο." />
+
+  <title>Euronics Πανταζής — Ηγουμενίτσα | Παράδοση & Εγκατάσταση σε όλη την Ήπειρο</title>
+  <meta name="description" content="Euronics Πανταζής στην Ηγουμενίτσα. Πωλήσεις, παράδοση & επαγγελματική εγκατάσταση σε Θεσπρωτία, Ιωάννινα, Πρέβεζα, Άρτα και Κέρκυρα. Τηλεοράσεις, λευκές συσκευές, κλιματισμός, computing, service." />
+  <link rel="canonical" href="https://pantazis-euronics.gr/" />
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0b57d0" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="el_GR" />
+  <meta property="og:site_name" content="Euronics Πανταζής" />
+  <meta property="og:title" content="Euronics Πανταζής — Ηγουμενίτσα | Παράδοση & Εγκατάσταση σε όλη την Ήπειρο" />
+  <meta property="og:description" content="Πωλήσεις & εγκαταστάσεις σε όλη την Ήπειρο: Θεσπρωτία, Ιωάννινα, Πρέβεζα, Άρτα." />
+  <meta property="og:url" content="https://pantazis-euronics.gr/" />
+  <meta property="og:image" content="https://pantazis-euronics.gr/images/og-home.jpg" />  <!-- TODO -->
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="/favicon.ico" />
+  <meta name="twitter:title" content="Euronics Πανταζής — Ηγουμενίτσα" />
+  <meta name="twitter:description" content="Πωλήσεις & εγκαταστάσεις σε όλη την Ήπειρο." />
+  <meta name="twitter:image" content="https://pantazis-euronics.gr/images/og-home.jpg" /> <!-- TODO -->
+
+  <!-- Hreflang -->
+  <link rel="alternate" href="https://pantazis-euronics.gr/" hreflang="el-GR" />
+  <link rel="alternate" href="https://pantazis-euronics.gr/" hreflang="x-default" />
+
+  <!-- Assets -->
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css" />
   
+  <!-- Preload LCP (1η εικόνα slider) -->
+  <link rel="preload" as="image" href="/images/van.jpg" fetchpriority="high" imagesrcset="/images/van.jpg 1600w" /> <!-- TODO -->
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- TODO -->
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0b57d0" />
+
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ElectronicsStore",
-    "name": "Euronics Πανταζής — Ηγουμενίτσα",
-    "image": "https://images.unsplash.com/photo-1492648271396-17f34bde7fd8?q=80&w=1600&auto=format&fit=crop",
-    "address": {"@type": "PostalAddress","addressLocality": "Ηγουμενίτσα","addressRegion": "Ήπειρος","addressCountry": "GR"},
-    "telephone": "+30 2665 409100",
-    "openingHours": ["Mo-Fr 09:00-21:00","Sa 09:00-18:00"],
-    "areaServed": "Ήπειρος",
-    "url": "https://www.example.com/"
+    "@graph": [
+      {
+        "@type": "ElectronicsStore",
+        "@id": "https://pantazis-euronics.gr/#store",
+        "name": "Euronics Πανταζής",
+        "url": "https://pantazis-euronics.gr/",
+        "image": "https://pantazis-euronics.gr/images/storefront.jpg",
+        "telephone": "+302665409100",
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR",
+        "paymentAccepted": "Cash, Credit Card",
+        "slogan": "Παράδοση & Εγκατάσταση σε όλη την Ήπειρο",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "49 Μαρτύρων 15",
+          "addressLocality": "Ηγουμενίτσα",
+          "addressRegion": "Θεσπρωτία",
+          "postalCode": "",
+          "addressCountry": "GR"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 39.49726886244872, "longitude": 20.265606688443555 },
+        "hasMap": "https://maps.google.com/?q=Euronics+Πανταζής+Ηγουμενίτσα",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Θεσπρωτία" },
+          { "@type": "AdministrativeArea", "name": "Ιωάννινα" },
+          { "@type": "AdministrativeArea", "name": "Πρέβεζα" },
+          { "@type": "AdministrativeArea", "name": "Άρτα" }
+        ],
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Wednesday","Saturday"], "opens": "09:00", "closes": "14:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Thursday","Friday"], "opens": "09:00", "closes": "14:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Thursday","Friday"], "opens": "17:00", "closes": "20:00" }
+        ],
+        "contactPoint": [
+          { "@type": "ContactPoint", "telephone": "+302665409100", "contactType": "customer service", "areaServed": "GR" },
+          { "@type": "ContactPoint", "telephone": "+306959666060", "contactType": "customer service", "areaServed": "GR" }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/pantaziseuronics/",
+          "https://www.facebook.com/electro.pantazis/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://pantazis-euronics.gr/#website",
+        "url": "https://pantazis-euronics.gr/",
+        "name": "Euronics Πανταζής",
+        "inLanguage": "el-GR",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://pantazis-euronics.gr/products.html?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://pantazis-euronics.gr/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Γίνεται μεταφορά εκτός Ηγουμενίτσας;",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ναι, εξυπηρετούμε όλη την Ήπειρο και Κέρκυρα κατόπιν συνεννόησης." }
+          },
+          {
+            "@type": "Question",
+            "name": "Παραλαμβάνετε την παλιά συσκευή;",
+            "acceptedAnswer": { "@type": "Answer", "text": "Βεβαίως, αναλαμβάνουμε αποξήλωση και ανακύκλωση όπου απαιτείται." }
+          },
+          {
+            "@type": "Question",
+            "name": "Υπάρχει δυνατότητα δόσεων;",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ναι, μέσω ταμείου στο κατάστημα. Ρωτήστε μας για τις επιλογές." }
+          }
+        ]
+      }
+    ]
   }
   </script>
-  <link rel="stylesheet" href="style.css" />
 </head>
+
 
 
 <body>
